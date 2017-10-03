@@ -6,12 +6,14 @@ import { Constants as Routes } from '../domains/routing';
 
 // view sagas
 import home from './views/home';
+import test from './views/test';
 
 // init
 import initialize from './initialize';
 
 const viewSagas = {
   [Routes.HOME]: home,
+  [Routes.TEST]: test,
 };
 
 let task = null;

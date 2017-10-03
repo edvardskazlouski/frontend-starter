@@ -35,6 +35,7 @@ Basic fronted starter.
 9. `reducers` - the folder, that contains all view reducers.
 10. `router` - it is specific component with all routes-components mapping.
 11. `sagas` - folder with all view sagas. These sagas include business logic.
-12. `services` - folder with specific services, such as transformation store to localstorage or react scripts worker.
-13. `store` - folder with creation of the store.
-14. `theme` - ui theme of the application
+12. `selectors` - folder with all views store selectors.
+13. `services` - folder with specific services, such as transformation store to localstorage or react scripts worker.
+14. `store` - folder with creation of the store.
+15. `theme` - ui theme of the application
