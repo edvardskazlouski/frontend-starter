@@ -13,7 +13,8 @@ class Test extends PureComponent {
     groups: ImmutablePropTypes.list,
     isOk: PropTypes.bool.isRequired,
     submitValue: PropTypes.func.isRequired,
-    submittedValue: PropTypes.string
+    submittedValue: PropTypes.string,
+    openTestModal: PropTypes.func.isRequired,
   };
 
   render() {
@@ -22,6 +23,7 @@ class Test extends PureComponent {
       isOk,
       submitValue,
       submittedValue,
+      openTestModal,
 
       classes
     } = this.props;
@@ -40,6 +42,7 @@ class Test extends PureComponent {
         <div>
           {submittedValue}
         </div>
+        <button onClick={openTestModal}>Open modal</button>
       </div>
     );
   }

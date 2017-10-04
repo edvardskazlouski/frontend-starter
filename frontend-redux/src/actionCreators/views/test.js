@@ -1,4 +1,4 @@
-import ActionTypes from '../actionTypes/test';
+import ActionTypes from '../../actionTypes/views/test';
 
 export const setTest = () => ({
   type: ActionTypes.SET_TEST,

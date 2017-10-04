@@ -2,7 +2,7 @@ import { LOCATION_CHANGE } from 'react-router-redux';
 import { takeEvery, cancel, call, fork } from 'redux-saga/effects';
 
 // constants
-import { Constants as Routes } from '../domains/routing';
+import * as Routes from '../constants/routing';
 
 // view sagas
 import home from './views/home';

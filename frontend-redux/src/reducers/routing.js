@@ -6,8 +6,11 @@ const initialState = fromJS({
 });
 export default function (state = initialState, action) {
   switch (action.type) {
-    case LOCATION_CHANGE:
+
+    case LOCATION_CHANGE: {
       return state.set('location', fromJS(action.payload));
+    }
+
     default: {
       return state;
     }

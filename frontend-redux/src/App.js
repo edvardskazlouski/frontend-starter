@@ -4,6 +4,7 @@ import { translate } from 'react-i18next';
 
 import Router from './router';
 import Header from './components/Header';
+import ModalPortals from './components/ModalsPortal';
 
 class App extends Component {
   static propTypes = {
@@ -17,6 +18,7 @@ class App extends Component {
       <div>
         <Header />
         <Router />
+        <ModalPortals />
       </div>
     );
   }

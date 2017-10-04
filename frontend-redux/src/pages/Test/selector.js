@@ -4,7 +4,7 @@ import { createSelector } from 'reselect';
 import { Selectors as TestGroupsSelectors } from '../../domains/testGroups';
 
 // view
-import * as TestViewSelectors from '../../selectors/test';
+import * as TestViewSelectors from '../../selectors/views/test';
 
 export default createSelector(
   TestGroupsSelectors.groups,

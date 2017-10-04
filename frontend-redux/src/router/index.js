@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router';
 
-import { Constants as Routes } from '../domains/routing';
+import * as Routes from '../constants/routing';
 
 // views
 import Home from '../pages/Home';

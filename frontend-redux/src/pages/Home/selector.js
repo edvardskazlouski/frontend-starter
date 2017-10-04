@@ -1,8 +1,8 @@
 import { createSelector } from 'reselect';
-import { Selectors as RoutingSelectors } from '../../domains/routing';
+import { route } from '../../selectors/routing';
 
 export default createSelector(
-  RoutingSelectors.route,
+  route,
   route => ({
     route
   })
