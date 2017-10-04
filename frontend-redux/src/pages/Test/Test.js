@@ -1,11 +1,14 @@
 import React, { PureComponent } from 'react';
+import injectSheet from 'react-jss';
 import PropTypes from 'prop-types';
 import ReactHelmet from 'react-helmet';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
-import TestForm from '../../components/TestForm';
+import TestForm from './TestForm';
 
-export default class Test extends PureComponent {
+import styles from './styles';
+
+class Test extends PureComponent {
   static propTypes = {
     groups: ImmutablePropTypes.list,
     isOk: PropTypes.bool.isRequired,
@@ -19,14 +22,16 @@ export default class Test extends PureComponent {
       isOk,
       submitValue,
       submittedValue,
+
+      classes
     } = this.props;
 
     return (
-      <div>
+      <div className={classes.container}>
         <ReactHelmet
           title="Test screen"
         />
-        <div>
+        <div className={classes.groupsSize}>
           {groups.size}
         </div>
         {
@@ -39,3 +44,5 @@ export default class Test extends PureComponent {
     );
   }
 }
+
+export default injectSheet(styles)(Test);

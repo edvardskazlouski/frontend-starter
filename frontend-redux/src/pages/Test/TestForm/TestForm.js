@@ -1,8 +1,14 @@
 import React, { PureComponent } from 'react';
+import injectSheet from 'react-jss';
 import PropTypes from 'prop-types';
 import { Field } from 'redux-form/immutable';
 
-export default class TestForm extends PureComponent {
+// commponents
+import TestButton from '../../../components/TestButton';
+
+import styles from './styles';
+
+class TestForm extends PureComponent {
   static propTypes = {
     handleSubmit: PropTypes.func.isRequired,
     reset: PropTypes.func.isRequired
@@ -13,7 +19,11 @@ export default class TestForm extends PureComponent {
   };
 
   render() {
-    const { handleSubmit, reset } = this.props;
+    const {
+      handleSubmit,
+      reset,
+      classes
+    } = this.props;
     const { t } = this.context;
 
     return (
@@ -23,10 +33,17 @@ export default class TestForm extends PureComponent {
             component="input"
           />
         <div>
-          <button type="submit">{t('app:update')}</button>
+          <TestButton
+            type="submit"
+            className={classes.submit}
+          >
+            {t('app:update')}
+          </TestButton>
           <button type="button" onClick={reset}>{t('app:reset')}</button>
         </div>
       </form>
     );
   }
 }
+
+export default injectSheet(styles)(TestForm);
