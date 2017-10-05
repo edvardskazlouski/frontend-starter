@@ -10,7 +10,6 @@
     "immutable-devtools": "^0.0.7",
     "lodash": "^4.17.4",
     "material-ui": "^1.0.0-beta.10",
-    "pre-commit": "^1.2.2",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
@@ -41,9 +40,11 @@
   "devDependencies": {
     "@storybook/addon-actions": "^3.2.12",
     "@storybook/addon-links": "^3.2.12",
-    "@storybook/react": "^3.2.12"
+    "@storybook/react": "^3.2.12",
+    "pre-commit": "^1.2.2"
   },
   "pre-commit": [
-    "lint"
+    "lint",
+    "test"
   ]
 }

@@ -7,6 +7,12 @@ Basic fronted starter.
 2. `npm test` - start testing
 3. `npm run build` - build sources into `/build` folder
 
+build
+lint
+start
+storybook
+test
+
 ## Main libraries:
 1. `React`
 2. `React Router`
