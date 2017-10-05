@@ -1,4 +1,4 @@
-import namespace from '../helpers/namespace';
+import namespace from 'helpers/namespace';
 
 export default namespace({
   OPEN: null,

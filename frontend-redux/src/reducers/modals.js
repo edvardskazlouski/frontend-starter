@@ -1,6 +1,6 @@
 import { Stack } from 'immutable';
 
-import ActionTypes from '../actionTypes/modals';
+import ActionTypes from 'actionTypes/modals';
 
 const initialState = Stack();
 

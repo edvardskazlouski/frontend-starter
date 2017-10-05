@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Field } from 'redux-form/immutable';
 
 // commponents
-import TestButton from '../../../components/TestButton';
+import TestButton from 'components/TestButton';
 
 import styles from './styles';
 

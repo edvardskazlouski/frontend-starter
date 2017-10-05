@@ -1,5 +1,5 @@
-import ActionTypes from '../actionTypes/modals';
-import ModalTypes from '../constants/modals';
+import ActionTypes from 'actionTypes/modals';
+import ModalTypes from 'constants/modals';
 
 export const openModal = payload => ({
   type: ActionTypes.OPEN,

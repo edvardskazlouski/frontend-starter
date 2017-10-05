@@ -13,12 +13,12 @@ import { apiMiddleware } from 'redux-api-middleware';
 import persistState from 'redux-localstorage';
 
 //helpers
-import getLocalStorageConfig from '../services/localstorage';
-import rootReducer from '../reducers';
-import rootSaga from '../sagas';
+import getLocalStorageConfig from 'services/localstorage';
+import rootReducer from 'reducers';
+import rootSaga from 'sagas';
 
 // constants
-import LOCAL_STORAGE_CONFIG from '../constants/localstorage';
+import LOCAL_STORAGE_CONFIG from 'constants/localstorage';
 
 const initialState = Map();
 

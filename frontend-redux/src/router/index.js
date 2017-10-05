@@ -4,8 +4,8 @@ import { Switch, Route } from 'react-router';
 import * as Routes from '../constants/routing';
 
 // views
-import Home from '../pages/Home';
-import Test from '../pages/Test';
+import Home from 'pages/Home';
+import Test from 'pages/Test';
 
 const Router = () => (
   <Switch>

@@ -2,7 +2,7 @@ import {
   fromJS,
 } from 'immutable';
 
-import ActionTypes from '../../actionTypes/views/test';
+import ActionTypes from 'actionTypes/views/test';
 
 const initialState = fromJS({
   isOk: false,

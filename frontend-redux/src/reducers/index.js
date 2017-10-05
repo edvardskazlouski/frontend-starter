@@ -6,7 +6,7 @@ import modals from './modals';
 import routing from './routing';
 
 // domains
-import { reducer as testGroups } from '../domains/testGroups';
+import { reducer as testGroups } from 'domains/testGroups';
 
 // views
 import test from './views/test';

@@ -5,7 +5,7 @@ import injectSheet from 'react-jss';
 import styles from './styles';
 
 import { DialogContent } from 'material-ui/Dialog';
-import TestButton from '../../TestButton';
+import TestButton from 'components/TestButton';
 
 import Typography from 'material-ui/Typography';
 

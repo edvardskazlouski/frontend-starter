@@ -6,11 +6,11 @@ import injectSheet from 'react-jss';
 import styles from './styles';
 
 // modals
-import BaseModal  from '../modals/BaseModal';
-import TestModal from '../modals/TestModal';
+import BaseModal  from 'components/modals/BaseModal';
+import TestModal from 'components/modals/TestModal';
 
 // modals
-import ModalTypes from '../../constants/modals';
+import ModalTypes from 'constants/modals';
 
 const mapTypeToModal = {
   [ModalTypes.TEST_MODAL]: TestModal,
