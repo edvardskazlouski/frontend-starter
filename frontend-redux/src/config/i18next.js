@@ -1,8 +1,8 @@
 import i18n from 'i18next';
 
 // locales
-import app from './locales/en/app';
-import home from './locales/en/home';
+import app from '../locales/en/app';
+import home from '../locales/en/home';
 
 i18n.init({
   debug: false,

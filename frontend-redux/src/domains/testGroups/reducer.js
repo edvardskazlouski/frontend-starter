@@ -13,7 +13,7 @@ export default function (state = initialState, action) {
   switch (action.type) {
 
     case ActionTypes.LOAD_GROUPS_SUCCESS:
-      return state.set('groups', fromJS(action.payload.groups));
+      return state.set('groups', fromJS(action.payload));
 
     case ActionTypes.LOAD_GROUPS_FAILURE:
       return state.set('groups', new List());

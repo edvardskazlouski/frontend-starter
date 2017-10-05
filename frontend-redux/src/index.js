@@ -8,14 +8,14 @@ import { I18nextProvider } from 'react-i18next';
 import { ThemeProvider } from 'react-jss';
 import { MuiThemeProvider } from 'material-ui/styles';
 
-import store  from './store';
-import history from './store/history';
+import store  from 'store';
+import history from 'store/history';
 
-import theme from './theme';
+import theme from 'theme';
 
-import i18n from './i18next';
-import App from './App';
-import registerServiceWorker from './services/registerServiceWorker';
+import i18n from 'config/i18next';
+import App from 'App';
+import registerServiceWorker from 'services/registerServiceWorker';
 
 render(
   <I18nextProvider i18n={i18n}>

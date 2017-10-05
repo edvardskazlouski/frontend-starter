@@ -1,5 +1,6 @@
 import { RSAA } from 'redux-api-middleware';
 import ActionTypes from './actionTypes';
+import { formatGroups } from './formatters';
 
 export const loadTestGroups = () => ({
   [RSAA]: {
@@ -7,7 +8,10 @@ export const loadTestGroups = () => ({
     method: 'GET',
     types: [
       ActionTypes.LOAD_GROUPS_REQUEST,
-      ActionTypes.LOAD_GROUPS_SUCCESS,
+      {
+        type: ActionTypes.LOAD_GROUPS_SUCCESS,
+        payload: (action, state, res) => res.json().then(data => formatGroups(data.groups))
+      },
       ActionTypes.LOAD_GROUPS_FAILURE,
     ]
   }

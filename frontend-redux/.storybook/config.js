@@ -9,7 +9,7 @@ import { MuiThemeProvider } from 'material-ui/styles';
 import Context from './helpers/Context';
 
 import theme from '../src/theme';
-import i18n from '../src/i18next'; // initialized i18next instance
+import i18n from '../src/config/i18next'; // initialized i18next instance
 
 addDecorator(story =>
   <I18nextProvider i18n={i18n}>
