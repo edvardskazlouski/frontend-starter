@@ -3,15 +3,11 @@ Basic fronted starter.
 
 ## Available scripts:
 
-1. `npm start` - start dev server on `localhost:3000`
-2. `npm test` - start testing
-3. `npm run build` - build sources into `/build` folder
-
-build
-lint
-start
-storybook
-test
+1. `yarn start` - start dev server on `localhost:3000`
+2. `yarn test` - start testing
+3. `yarn build` - build sources into `/build` folder
+4. `yarn lint` - make *eslint* check of the project files
+5. `yarn storybook` - wake up project storybook
 
 ## Main libraries:
 1. `React`
@@ -27,21 +23,24 @@ test
 11. `Reselect`
 
 ## Project folders
-1. `actionCreators` - here should be placed the list of views actions creators.
-2. `actionTypes` - here should be the list of views action types. Each action type should be wrapped into `namespace` according to his namespace
-3. `components` - here schould be the shared components, that can be used in any part of application. All components should be pure. Exception is forms. They should include separate container in `index.js` and separate form to test.
-4. `constants` - here should be view constants.
-5. `domains` - it's grouped shared peaces, for example *user* information may used on a few screens but should be the same.
-6. `helpers` - it's pure function.
-7. `locales` - it's folder with lang dictionaries.
-8. `pages` - the folder with all app pages. Each page should include:
-    7.1. `[PageName].js` - file with page realization.
-    7.2. `index.js` - page container.
-    7.3. `selector.js` - `mapStateToProps` selector, that created using `reselect`.
-9. `reducers` - the folder, that contains all view reducers.
-10. `router` - it is specific component with all routes-components mapping.
-11. `sagas` - folder with all view sagas. These sagas include business logic.
-12. `selectors` - folder with all views store selectors.
-13. `services` - folder with specific services, such as transformation store to localstorage or react scripts worker.
-14. `store` - folder with creation of the store.
-15. `theme` - ui theme of the application
+1. `actionCreators` - here should be placed the list of app actions creators. View action creators should be located in `view` folder.
+2. `actionTypes` - here should be the list of app action types. Each action type should be wrapped into `namespace` according to it namespace. View action types should be located in `view` folder.
+3. `components` - here should be the shared components, that can be used in any part of application. All components should be pure (Has no connection with store). All modals should be added in `modals` folder.
+4. `config` - here should be located an configuration of the app. For example language setup of the project.
+5. `constants` - here should be located app constants. View constants should be in view folder.
+6. `domains` - it's grouped shared peaces, for example *user* information may used on a few screens but should be the same.
+7. `helpers` - it's pure function, that help us.
+8. `locales` - it's folder with lang dictionaries. All keys should be grouped by logic or view level.
+9. `pages` - the folder with all app pages. Each page should include:
+    9.1. `[PageName].js` - file with page realization.
+    9.2. `index.js` - page container.
+    9.3. `selector.js` - `mapStateToProps` selector, that created using `reselect`.
+    9.4. `styles.js` - view jss styles.
+10. `reducers` - the folder, that contains all app reducers. View reducers should be located in `view` folder.
+11. `router` - it is specific component with all routes-components mapping.
+12. `sagas` - folder with all app sagas. All business logic in the app should be realized on sagas level. View sagas should be located in `view` folder.
+13. `selectors` - folder with all views store selectors.
+14. `services` - folder with specific services, such as transformation store to localstorage or react scripts worker.
+15. `stories` - react storybook stories for testing pure components of the app.
+16. `store` - redux store with all middlewares and reducers.
+17. `theme` - ui theme of the application
