@@ -7,4 +7,4 @@ export default ({ colors }) => ({
     backgroundColor: colors.LILAC_BUSH,
     marginBottom: 10
   }
-})
+});
