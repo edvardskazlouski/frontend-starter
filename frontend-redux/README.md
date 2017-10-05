@@ -1,5 +1,5 @@
 # frontend-starter
-Basic fronted starter.
+This starter is create for making your live more easy. Here is applyied a few the simple and useful solutions for all basic UI problems, such popups and themes.
 
 ## Available scripts:
 
@@ -8,19 +8,6 @@ Basic fronted starter.
 3. `yarn build` - build sources into `/build` folder
 4. `yarn lint` - make *eslint* check of the project files
 5. `yarn storybook` - wake up project storybook
-
-## Main libraries:
-1. `React`
-2. `React Router`
-3. `Redux`
-4. `React Redux Router`
-5. `MaterialUI@next`
-6. `Redux-sagas`
-7. `Redux-form`
-8. `Immutable`
-9. `React-Jss`
-10. `I-18next`
-11. `Reselect`
 
 ## Project folders
 1. `actionCreators` - here should be placed the list of app actions creators. View action creators should be located in `view` folder.
@@ -44,3 +31,24 @@ Basic fronted starter.
 15. `stories` - react storybook stories for testing pure components of the app.
 16. `store` - redux store with all middlewares and reducers.
 17. `theme` - ui theme of the application
+
+## Modals
+For creating modal you should make a few steps:
+1. Create modal type in `constants/modals`.
+2. Create action creator in `actionCreators/modals` using `openModal` as base and pass required type.
+3. Create modal component in `components/Modal`. You can use `connect` for binding state to modal.
+4. Add in `mapTypeToModal` pair with type and component into `components/ModalPortal`.
+5. Enjoy.
+
+## Main libraries:
+1. `React`
+2. `React Router`
+3. `Redux`
+4. `React Redux Router`
+5. `MaterialUI@next`
+6. `Redux-sagas`
+7. `Redux-form`
+8. `Immutable`
+9. `React-Jss`
+10. `I-18next`
+11. `Reselect`
