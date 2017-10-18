@@ -1,5 +1,5 @@
 import { LOCATION_CHANGE } from 'react-router-redux';
-import { takeEvery, cancel, call, fork } from 'redux-saga/effects';
+import { takeEvery, cancel, call, fork, take } from 'redux-saga/effects';
 
 // constants
 import * as Routes from 'constants/routing';
@@ -35,8 +35,10 @@ function* onchange(action) {
 }
 
 export default function* routerSaga() {
-  const pathname = yield call(initialize);
-  yield call(onchange, { payload: { pathname }});
+  const action = yield take(LOCATION_CHANGE);
+
+  yield call(initialize);
+  yield call(onchange, action);
 
   yield takeEvery(LOCATION_CHANGE, onchange);
 }

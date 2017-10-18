@@ -4,6 +4,7 @@ import { reducer as formReducer } from 'redux-form';
 // generic
 import modals from './modals';
 import routing from './routing';
+import loading from './loading';
 
 // domains
 import { reducer as testGroups } from 'domains/testGroups';
@@ -17,6 +18,7 @@ export default combineReducers({
   // generic
   routing,
   modals,
+  loading,
 
   // domains
   testGroups,
