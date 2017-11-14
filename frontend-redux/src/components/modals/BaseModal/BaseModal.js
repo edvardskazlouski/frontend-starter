@@ -12,7 +12,13 @@ class BaseModal extends Component {
 
     return (
       <Dialog classes={classes} className={classes.modal} open={isOpen} onRequestClose={closeAction}>
-        {children}
+        {
+          React.Children.map(children,
+            (child) => React.cloneElement(child, {
+              closeModal: closeAction
+            })
+          )
+        }
       </Dialog>
     );
   }
