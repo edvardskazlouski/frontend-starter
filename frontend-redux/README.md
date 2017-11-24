@@ -52,3 +52,4 @@ For creating modal you should make a few steps:
 9. `React-Jss`
 10. `I-18next`
 11. `Reselect`
+12. `Redux-Actions`

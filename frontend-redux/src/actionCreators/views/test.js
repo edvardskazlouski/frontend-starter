@@ -1,10 +1,6 @@
+import { createAction } from 'redux-actions';
 import ActionTypes from 'actionTypes/views/test';
 
-export const setTest = () => ({
-  type: ActionTypes.SET_TEST,
-});
+export const setTest = createAction(ActionTypes.SET_TEST);
 
-export const submitValue = payload => ({
-  type: ActionTypes.SUBMIT_VALUE,
-  payload
-});
+export const submitValue = createAction(ActionTypes.SUBMIT_VALUE);

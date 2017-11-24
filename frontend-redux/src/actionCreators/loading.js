@@ -1,9 +1,6 @@
+import { createAction } from 'redux-actions';
 import ActionTypes from 'actionTypes/loading';
 
-export const startLoading = () => ({
-  type: ActionTypes.LOADING_START,
-});
+export const startLoading = createAction(ActionTypes.LOADING_START);
 
-export const stopLoading = () => ({
-  type: ActionTypes.LOADING_FINISH,
-});
+export const stopLoading = createAction(ActionTypes.LOADING_FINISH);
