@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import injectSheet from 'react-jss';
+import { withStyles } from 'material-ui/styles';
 
 import styles from './styles';
 
@@ -36,4 +36,4 @@ BaseModal.propTypes = {
 };
 
 
-export default injectSheet(styles)(BaseModal);
+export default withStyles(styles)(BaseModal);

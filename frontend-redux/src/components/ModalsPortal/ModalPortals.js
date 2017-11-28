@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import injectSheet from 'react-jss';
+import { withStyles } from 'material-ui/styles';
 
 import styles from './styles';
 
@@ -45,4 +45,4 @@ ModalsPortal.propTypes = {
   closeModal: PropTypes.func,
 };
 
-export default injectSheet(styles)(ModalsPortal);
+export default withStyles(styles)(ModalsPortal);

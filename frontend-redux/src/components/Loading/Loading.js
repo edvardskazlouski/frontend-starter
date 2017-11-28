@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import injectSheet from 'react-jss';
+import { withStyles } from 'material-ui/styles';
 import { connect } from 'react-redux';
 
 import BlockUi from 'react-block-ui';
@@ -34,5 +34,5 @@ Loading.defaultProps = {
 };
 
 export default connect(loadingSelector)(
-  injectSheet(styles)(Loading)
+  withStyles(styles)(Loading)
 );

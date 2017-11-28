@@ -7,6 +7,7 @@ import * as Routes from 'constants/routing';
 // view sagas
 import home from './views/home';
 import test from './views/test';
+import reset from './views/reset';
 
 // init
 import initialize from './initialize';
@@ -14,6 +15,7 @@ import initialize from './initialize';
 const viewSagas = {
   [Routes.HOME]: home,
   [Routes.TEST]: test,
+  [Routes.RESET]: reset,
 };
 
 let task = null;

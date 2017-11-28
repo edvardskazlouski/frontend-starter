@@ -1,35 +1,39 @@
 import React from 'react';
-import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'react-router-redux';
+import ReactDOM from 'react-dom';
+import App from './App';
+import registerServiceWorker from './services/registerServiceWorker';
+import { createMuiTheme, MuiThemeProvider } from 'material-ui/styles';
 import { I18nextProvider } from 'react-i18next';
-
-// provides ui theme to styles functions
-import { ThemeProvider } from 'react-jss';
-import { MuiThemeProvider } from 'material-ui/styles';
-
-import store  from 'store';
-import history from 'store/history';
-
-import theme from 'theme';
-
 import i18n from 'config/i18next';
-import App from 'App';
-import registerServiceWorker from 'services/registerServiceWorker';
 
-render(
+import JssProvider from 'react-jss/lib/JssProvider';
+import { create } from 'jss';
+import preset from 'jss-preset-default';
+import theme from './theme';
+import createGenerateClassName from 'material-ui/styles/createGenerateClassName';
+
+import { Provider } from 'react-redux';
+import store from './store';
+import history from './store/history';
+
+import { ConnectedRouter } from 'react-router-redux';
+
+const jss = create(preset());
+jss.options.createGenerateClassName = createGenerateClassName;
+
+ReactDOM.render(
   <I18nextProvider i18n={i18n}>
-    <Provider store={store}>
-      <MuiThemeProvider theme={theme}>
-        <ThemeProvider theme={theme}>
+    <MuiThemeProvider theme={createMuiTheme(theme)}>
+      <JssProvider jss={jss}>
+        <Provider store={store}>
           <ConnectedRouter history={history}>
             <App />
           </ConnectedRouter>
-        </ThemeProvider>
-      </MuiThemeProvider>
-    </Provider>
+        </Provider>
+      </JssProvider>
+    </MuiThemeProvider>
   </I18nextProvider>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );
 
 registerServiceWorker();

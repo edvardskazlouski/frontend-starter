@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import injectSheet from 'react-jss';
+import { withStyles } from 'material-ui/styles';
 import PropTypes from 'prop-types';
 import { Field } from 'redux-form/immutable';
 
@@ -46,4 +46,4 @@ class TestForm extends PureComponent {
   }
 }
 
-export default injectSheet(styles)(TestForm);
+export default withStyles(styles)(TestForm);
