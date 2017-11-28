@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'material-ui/Button';
-import injectSheet from 'react-jss';
+import { withStyles } from 'material-ui/styles';
 import classnames from 'classnames';
 
 import styles from './styles';
@@ -29,4 +29,4 @@ TestButton.defaultProps = {
   onClick: () => {}
 };
 
-export default injectSheet(styles)(TestButton);
+export default withStyles(styles)(TestButton);

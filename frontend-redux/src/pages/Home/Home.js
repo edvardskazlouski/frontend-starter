@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import ReactHelmet from 'react-helmet';
-import injectSheet from 'react-jss';
+import { withStyles } from 'material-ui/styles';
 
 import styles from './styles';
 
@@ -35,4 +35,4 @@ class Home extends PureComponent {
   }
 }
 
-export default injectSheet(styles)(Home);
+export default withStyles(styles)(Home);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import injectSheet from 'react-jss';
+import { withStyles } from 'material-ui/styles';
 
 import styles from './styles';
 
@@ -27,4 +27,4 @@ TestModal.propTypes = {
   closeModal: PropTypes.func,
 };
 
-export default injectSheet(styles)(TestModal);
+export default withStyles(styles)(TestModal);

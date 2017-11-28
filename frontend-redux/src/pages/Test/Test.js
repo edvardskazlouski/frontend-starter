@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import injectSheet from 'react-jss';
+import { withStyles } from 'material-ui/styles';
 import PropTypes from 'prop-types';
 import ReactHelmet from 'react-helmet';
 import ImmutablePropTypes from 'react-immutable-proptypes';
@@ -48,4 +48,4 @@ class Test extends PureComponent {
   }
 }
 
-export default injectSheet(styles)(Test);
+export default withStyles(styles)(Test);
