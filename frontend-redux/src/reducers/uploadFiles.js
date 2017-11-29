@@ -6,6 +6,7 @@ import ActionTypes from 'actionTypes/uploadFiles';
 
 const initialState = fromJS({
   loading: false,
+  error: {},
 });
 
 export default function (state = initialState, { type, payload }) {
@@ -14,14 +15,13 @@ export default function (state = initialState, { type, payload }) {
     case ActionTypes.LOADING_START:
       return state.set('loading', true);
 
-    // case ActionTypes.LOADING_FINISH:
-    //   return state.set('loading', false);
-
     case ActionTypes.UPLOAD_FILE_SUCCESS:
       return state.set('loading', false);
 
     case ActionTypes.UPLOAD_FILE_FAILURE:
-      return state.set('loading', false);
+      return state
+        .set('loading', false)
+        .set('error', fromJS(payload));
 
     default: {
       return state;

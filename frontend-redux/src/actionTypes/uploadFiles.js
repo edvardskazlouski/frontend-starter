@@ -6,4 +6,4 @@ export default namespace({
   UPLOAD_FILE_FAILURE: null,
   LOADING_FINISH: null,
   LOADING_START: null,
-}, 'COMMON');
+}, 'UPLOAD_FILES');

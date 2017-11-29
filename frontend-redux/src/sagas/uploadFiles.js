@@ -10,7 +10,6 @@ function* uploadFileFunc({ payload }) {
         .from(payload)
         .map(file => call(uploadFileToAWS, file, file.name))
     );
-    // yield put({ type: ActionTypes.LOADING_FINISH});
     yield put({ type: ActionTypes.UPLOAD_FILE_SUCCESS });
   } catch (err) {
     yield put({ type: ActionTypes.UPLOAD_FILE_FAILURE, err });
