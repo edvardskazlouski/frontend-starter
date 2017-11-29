@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import SwipeableViews from 'react-swipeable-views';
+import { translate } from 'react-i18next';
 
 import AppBar from 'material-ui/AppBar';
 import Tabs, { Tab } from 'material-ui/Tabs';
@@ -11,13 +12,12 @@ import styles from './styles';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 
-class Authenticate extends Component {
+@translate()
+@withStyles(styles)
+export default class Authenticate extends Component {
   static propTypes = {
     classes: PropTypes.object.isRequired,
     openForgotPasswordModal: PropTypes.func.isRequired,
-  };
-
-  static contextTypes = {
     t: PropTypes.func.isRequired,
   };
 
@@ -32,8 +32,7 @@ class Authenticate extends Component {
   setSelectedTab = selectedTab => this.setState({ selectedTab });
 
   render() {
-    const { classes, openForgotPasswordModal } = this.props;
-    const { t } = this.context;
+    const { classes, openForgotPasswordModal, t } = this.props;
 
     return (
       <div className={classes.root}>
@@ -78,5 +77,3 @@ class Authenticate extends Component {
     );
   }
 }
-
-export default withStyles(styles)(Authenticate);

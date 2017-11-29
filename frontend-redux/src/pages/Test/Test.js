@@ -9,7 +9,8 @@ import UploadFile from 'components/UploadFile';
 import TestForm from './TestForm';
 import styles from './styles';
 
-class Test extends PureComponent {
+@withStyles(styles)
+export default class Test extends PureComponent {
   static propTypes = {
     groups: ImmutablePropTypes.list,
     isOk: PropTypes.bool.isRequired,
@@ -64,5 +65,3 @@ class Test extends PureComponent {
     );
   }
 }
-
-export default withStyles(styles)(Test);

@@ -5,12 +5,13 @@ import { withStyles } from 'material-ui/styles';
 import styles from './styles';
 import Typography from 'material-ui/Typography';
 import { FormControl } from 'material-ui/Form';
+import { translate } from 'react-i18next';
 
 import TextInput from 'components/Forms/TextInput';
 import PasswordInput from 'components/Forms/PasswordInput';
 import Button from 'material-ui/Button';
 
-const SignIn = ({ handleSubmit, classes, openForgotPasswordModal }, { t }) => (
+const SignIn = ({ handleSubmit, classes, openForgotPasswordModal, t }) => (
   <form
     className={classes.login}
     onSubmit={handleSubmit}
@@ -57,10 +58,9 @@ SignIn.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
   openForgotPasswordModal: PropTypes.func.isRequired,
-};
-
-SignIn.contextTypes = {
   t: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(SignIn);
+export default translate()(
+  withStyles(styles)(SignIn)
+);

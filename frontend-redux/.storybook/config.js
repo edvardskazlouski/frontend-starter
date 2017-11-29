@@ -6,8 +6,6 @@ import { I18nextProvider } from 'react-i18next';
 import { ThemeProvider } from 'react-jss';
 import { MuiThemeProvider } from 'material-ui/styles';
 
-import Context from './helpers/Context';
-
 import theme from '../src/theme';
 import i18n from '../src/config/i18next'; // initialized i18next instance
 
@@ -15,9 +13,7 @@ addDecorator(story =>
   <I18nextProvider i18n={i18n}>
     <MuiThemeProvider theme={theme}>
       <ThemeProvider theme={theme}>
-        <Context>
         {story()}
-        </Context>
       </ThemeProvider>
     </MuiThemeProvider>
   </I18nextProvider>

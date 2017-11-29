@@ -2,19 +2,19 @@ import React, { PureComponent } from 'react';
 import { withStyles } from 'material-ui/styles';
 import PropTypes from 'prop-types';
 import { Field } from 'redux-form/immutable';
+import { translate } from 'react-i18next';
 
 // commponents
 import TestButton from 'components/TestButton';
 
 import styles from './styles';
 
-class TestForm extends PureComponent {
+@translate()
+@withStyles(styles)
+export default class TestForm extends PureComponent {
   static propTypes = {
     handleSubmit: PropTypes.func.isRequired,
-    reset: PropTypes.func.isRequired
-  };
-
-  static contextTypes = {
+    reset: PropTypes.func.isRequired,
     t: PropTypes.func.isRequired,
   };
 
@@ -22,9 +22,9 @@ class TestForm extends PureComponent {
     const {
       handleSubmit,
       reset,
-      classes
+      classes,
+      t,
     } = this.props;
-    const { t } = this.context;
 
     return (
       <form onSubmit={handleSubmit}>
@@ -45,5 +45,3 @@ class TestForm extends PureComponent {
     );
   }
 }
-
-export default withStyles(styles)(TestForm);

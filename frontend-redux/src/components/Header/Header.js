@@ -1,13 +1,15 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 
-class Header extends PureComponent {
-  static contextTypes = {
+@translate()
+export default class Header extends PureComponent {
+  static propTypes = {
     t: PropTypes.func.isRequired,
   };
 
   render() {
-    const { t } = this.context;
+    const { t } = this.props;
 
     return (
       <div>
@@ -16,5 +18,3 @@ class Header extends PureComponent {
     );
   }
 }
-
-export default Header;

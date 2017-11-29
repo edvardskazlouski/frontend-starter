@@ -5,11 +5,12 @@ import { withStyles } from 'material-ui/styles';
 import styles from './styles';
 import Typography from 'material-ui/Typography';
 import { FormControl } from 'material-ui/Form';
+import { translate } from 'react-i18next';
 
 import PasswordInput from 'components/Forms/PasswordInput';
 import Button from 'material-ui/Button';
 
-const ResetPassword = ({ handleSubmit, classes, openForgotPasswordModal }, { t }) => (
+const ResetPassword = ({ handleSubmit, classes, openForgotPasswordModal, t }) => (
   <form
     className={classes.reset}
     onSubmit={handleSubmit}
@@ -38,10 +39,9 @@ const ResetPassword = ({ handleSubmit, classes, openForgotPasswordModal }, { t }
 ResetPassword.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
-};
-
-ResetPassword.contextTypes = {
   t: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(ResetPassword);
+export default translate()(
+  withStyles(styles)(ResetPassword)
+);

@@ -5,12 +5,13 @@ import { withStyles } from 'material-ui/styles';
 import styles from './styles';
 import Typography from 'material-ui/Typography';
 import { FormControl } from 'material-ui/Form';
+import { translate } from 'react-i18next';
 
 import TextInput from 'components/Forms/TextInput';
 import PasswordInput from 'components/Forms/PasswordInput';
 import Button from 'material-ui/Button';
 
-const SignUp = ({ handleSubmit, classes }, { t }) => (
+const SignUp = ({ handleSubmit, classes, t }) => (
   <form
     className={classes.signUp}
     onSubmit={handleSubmit}
@@ -60,10 +61,9 @@ const SignUp = ({ handleSubmit, classes }, { t }) => (
 SignUp.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
-};
-
-SignUp.contextTypes = {
   t: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(SignUp);
+export default translate()(
+  withStyles(styles)(SignUp)
+);

@@ -2,23 +2,23 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import ReactHelmet from 'react-helmet';
 import { withStyles } from 'material-ui/styles';
+import { translate } from 'react-i18next';
 
 import styles from './styles';
 
-class Home extends PureComponent {
+@translate()
+@withStyles(styles)
+export default class Home extends PureComponent {
   static propTypes = {
-    route: PropTypes.string.isRequired
-  };
-
-  static contextTypes = {
+    route: PropTypes.string.isRequired,
     t: PropTypes.func.isRequired,
   };
 
   render() {
-    const { t } = this.context;
     const {
       route,
-      classes
+      classes,
+      t,
     } = this.props;
 
     return (
@@ -34,5 +34,3 @@ class Home extends PureComponent {
     );
   }
 }
-
-export default withStyles(styles)(Home);
