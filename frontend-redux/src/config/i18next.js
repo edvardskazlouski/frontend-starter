@@ -1,25 +1,20 @@
 import i18n from 'i18next';
 
 // locales
-import app from '../locales/en/app';
-import home from '../locales/en/home';
-import auth from '../locales/en/auth';
-import reset from '../locales/en/reset';
+import EN from '../locales/en';
+import RU from '../locales/ru';
 
 i18n.init({
   debug: false,
-  fallbackLng: 'en',
+  fallbackLng: ['EN', 'RU'],
+  lng: 'EN',
 
   ns: [ 'app', 'home', 'reset', 'auth' ],
   defaultNS: 'app',
 
   resources: {
-    en: {
-      app,
-      home,
-      auth,
-      reset,
-    },
+    EN,
+    RU,
   }
 });
 

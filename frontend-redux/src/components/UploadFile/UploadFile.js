@@ -28,8 +28,10 @@ function UploadFile({
 }
 
 UploadFile.propTypes = {
-  component: PropTypes.node,
   uploadFile: PropTypes.func,
+  classes: PropTypes.object,
+  className: PropTypes.string,
+  loading: PropTypes.bool,
 };
 
 const mapDispatchToProps = {

@@ -5,9 +5,12 @@ import ReactHelmet from 'react-helmet';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import UploadFile from 'components/UploadFile';
+import Select from 'components/Select';
 
 import TestForm from './TestForm';
 import styles from './styles';
+
+const exmpl = ['1111', '2222', '3333', '44444'];
 
 @withStyles(styles)
 export default class Test extends PureComponent {
