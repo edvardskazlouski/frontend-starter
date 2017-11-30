@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 import injectSheet from 'react-jss';
+import Flag from 'react-world-flags';
 
 import styles from './styles';
 
@@ -26,9 +27,8 @@ export default class Header extends PureComponent {
     return (
       <div className={root}>
         <h4>{t('app:headerTitle')}</h4>
-        <div
-          className={languagesRoot}
-        >
+        <div className={languagesRoot}>
+          <Flag code={i18n.language} height={16}/>
           <select
             name="languages"
             onChange={this.handleLanguageChange}

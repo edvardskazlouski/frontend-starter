@@ -5,7 +5,12 @@ export default function() {
       justifyContent: 'space-between',
     },
     languagesRoot: {
+      display: 'flex',
+      alignItems: 'center',
 
+      '& > *': {
+        marginRight: 10,
+      },
     },
   };
 }
