@@ -4,11 +4,20 @@ import PropTypes from 'prop-types';
 import ReactHelmet from 'react-helmet';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
-import UploadFile from 'components/UploadFile';
+import FileUploader from 'components/FileUploader';
 
 import TestForm from './TestForm';
 import styles from './styles';
 
+
+const TestChild = (props) => console.log(props) || (
+  <div style={{ backgroundColor: 'green', height: 50, width: 50}}>
+  </div>
+);
+
+const TestPreloader = () => (
+  <div style={{ backgroundColor: 'red', height: '50px' }}/>
+);
 
 @withStyles(styles)
 export default class Test extends PureComponent {
@@ -43,19 +52,10 @@ export default class Test extends PureComponent {
           isOk && <TestForm onSubmit={submitValue} />
         }
         <div>
-          <UploadFile
-            preloader={null}
-            component={props => (
-              <form>
-                <input
-                  multiple
-                  type="file"
-                  onChange={
-                    event => props.uploadFile(event.nativeEvent.target.files)
-                  }
-                />
-              </form>
-            )}
+          <FileUploader
+            preloader={<TestPreloader/>}
+            component={<TestChild/>}
+            multiple
           />
         </div>
         <div>
