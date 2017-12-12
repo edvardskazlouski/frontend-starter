@@ -5,7 +5,7 @@ import { reducer as formReducer } from 'redux-form';
 import modals from './modals';
 import routing from './routing';
 import loading from './loading';
-import uploadFiles from './uploadFiles';
+import fileUploader from './fileUploader';
 
 // domains
 import { reducer as testGroups } from 'domains/testGroups';
@@ -20,7 +20,7 @@ export default combineReducers({
   routing,
   modals,
   loading,
-  uploadFiles,
+  fileUploader,
 
   // domains
   testGroups,

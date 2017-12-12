@@ -2,6 +2,7 @@ export default function () {
   return {
     root: {
       position: 'relative',
+      display: 'inline-block',
     },
     wrapper: {
       position: 'absolute',
@@ -10,8 +11,16 @@ export default function () {
       top: 0,
       left: 0,
     },
-    hidden: {
-      display: 'none',
+    inputField: {
+      width: 0.1,
+      height: 0.1,
+      opacity: 0,
+      overflow: 'hidden',
+      position: 'absolute',
+      zIndex: -1,
+    },
+    label: {
+      cursor: 'pointer',
     },
   };
 }
