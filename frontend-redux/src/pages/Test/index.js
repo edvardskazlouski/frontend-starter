@@ -15,7 +15,7 @@ import Test from './Test';
 import testSelector from './selector';
 
 const mapDispatchToProps = {
-  submitValue: () => submitValue(values.testField),
+  submitValue: values => submitValue(values.testField),
   openTestModal,
 };
 
