@@ -1,5 +1,5 @@
-export default {
-  modalsPortal: {
+export default function () {
+  return {
 
-  }
+  };
 };

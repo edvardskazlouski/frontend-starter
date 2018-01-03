@@ -40,7 +40,8 @@ export default function(state = initialState, { type, payload }) {
 
     case ActionTypes.UPLOAD_FILES_FAILURE:
       return state
-        .setIn([payload.form, payload.name, 'error'], payload.error);
+        .setIn([payload.form, payload.name, 'error'], fromJS(payload.error))
+        .setIn([payload.form, payload.name, 'isLoading'], false);
 
     default: {
       return state;

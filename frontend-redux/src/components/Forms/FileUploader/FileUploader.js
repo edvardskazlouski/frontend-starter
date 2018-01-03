@@ -72,7 +72,8 @@ export default class FileUploader extends PureComponent {
       fileTypes,
       className,
       renderComponent,
-      preloaderComponent
+      preloaderComponent,
+      error,
     } = this.props;
     const Component = renderComponent;
     const Preloader = preloaderComponent || Progress;

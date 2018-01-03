@@ -1,7 +1,7 @@
 export default function ({ colors }) {
   return {
     circle: {
-      stroke: colors.TOPAZ,
+      stroke: colors.BLACK,
     },
     progressWrapper: {
       margin: 5,
