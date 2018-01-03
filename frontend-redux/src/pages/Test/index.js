@@ -1,8 +1,12 @@
 import { connect } from 'react-redux';
 
 // actions creators
-import * as TestViewActionCreators from '../../actionCreators/views/test';
-import { openTestModal } from '../../actionCreators/modals';
+import {
+  submitValue,
+} from 'actionCreators/views/test';
+import {
+  openTestModal
+} from 'actionCreators/modals';
 
 // view
 import Test from './Test';
@@ -10,10 +14,12 @@ import Test from './Test';
 // selector
 import testSelector from './selector';
 
+const mapDispatchToProps = {
+  submitValue: () => submitValue(values.testField),
+  openTestModal,
+};
+
 export default connect(
   testSelector,
-  dispatch => ({
-    submitValue: values => dispatch(TestViewActionCreators.submitValue(values.testField)),
-    openTestModal: () => dispatch(openTestModal())
-  }),
+  mapDispatchToProps,
 )(Test);

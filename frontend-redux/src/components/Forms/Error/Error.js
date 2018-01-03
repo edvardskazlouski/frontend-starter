@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
+import injectSheet from 'react-jss';
 import styles from './styles';
 import classnames from 'classnames';
 import Typography from 'material-ui/Typography';
@@ -19,4 +19,4 @@ Error.propTypes = {
   error: PropTypes.string,
 };
 
-export default withStyles(styles)(Error);
+export default injectSheet(styles)(Error);

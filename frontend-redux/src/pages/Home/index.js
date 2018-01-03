@@ -6,9 +6,11 @@ import Home from './Home';
 // selector
 import homeSelector from './selector';
 
+const mapDispatchToProps = {
+  // TODO: complete actions list
+};
+
 export default connect(
   homeSelector,
-  dispatch => ({
-    // TODO: complete actions list
-  }),
+  mapDispatchToProps,
 )(Home);

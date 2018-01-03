@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
+import injectSheet from 'react-jss';
 import SwipeableViews from 'react-swipeable-views';
 import { translate } from 'react-i18next';
 
@@ -13,7 +13,7 @@ import SignIn from './SignIn';
 import SignUp from './SignUp';
 
 @translate()
-@withStyles(styles)
+@injectSheet(styles)
 export default class Authenticate extends Component {
   static propTypes = {
     classes: PropTypes.object.isRequired,

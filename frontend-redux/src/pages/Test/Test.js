@@ -1,16 +1,14 @@
 import React, { PureComponent } from 'react';
-import { withStyles } from 'material-ui/styles';
+import injectSheet from 'react-jss';
 import PropTypes from 'prop-types';
 import ReactHelmet from 'react-helmet';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-
-import UploadFile from 'components/UploadFile';
 
 import TestForm from './TestForm';
 import styles from './styles';
 
 
-@withStyles(styles)
+@injectSheet(styles)
 export default class Test extends PureComponent {
   static propTypes = {
     groups: ImmutablePropTypes.list,
@@ -43,25 +41,11 @@ export default class Test extends PureComponent {
           isOk && <TestForm onSubmit={submitValue} />
         }
         <div>
-          <UploadFile
-            preloader={null}
-            component={props => (
-              <form>
-                <input
-                  multiple
-                  type="file"
-                  onChange={
-                    event => props.uploadFile(event.nativeEvent.target.files)
-                  }
-                />
-              </form>
-            )}
-          />
         </div>
         <div>
           {submittedValue}
         </div>
-        <button onClick={openTestModal}>Open modal</button>
+        <button onClick={() => openTestModal({ headline: 'something' })}>Open modal</button>
       </div>
     );
   }

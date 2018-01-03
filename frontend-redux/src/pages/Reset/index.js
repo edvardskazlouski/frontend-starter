@@ -4,8 +4,11 @@ import { connect } from 'react-redux';
 // action creators
 import { resetPassword } from 'actionCreators/forms/resetPassword';
 
-const mapDispatchToProps = dispatch => ({
-  onSubmitResetPassword: payload => dispatch(resetPassword(payload)),
-});
+const mapDispatchToProps = {
+  onSubmitResetPassword: resetPassword,
+};
 
-export default connect(() => ({}), mapDispatchToProps)(Reset);
+export default connect(
+  null,
+  mapDispatchToProps,
+)(Reset);

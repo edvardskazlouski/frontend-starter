@@ -1,13 +1,14 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import ReactHelmet from 'react-helmet';
-import { withStyles } from 'material-ui/styles';
+import injectSheet from 'react-jss';
+
 import { translate } from 'react-i18next';
 
 import styles from './styles';
 
 @translate()
-@withStyles(styles)
+@injectSheet(styles)
 export default class Home extends PureComponent {
   static propTypes = {
     route: PropTypes.string.isRequired,

@@ -1,14 +1,16 @@
-import { Stack } from 'immutable';
+import { Stack, fromJS } from 'immutable';
 
 import ActionTypes from 'actionTypes/modals';
 
 const initialState = Stack();
 
-export default function (state = initialState, action) {
-  switch (action.type) {
+export default function (state = initialState, { type, payload }) {
+  switch (type) {
 
     case ActionTypes.OPEN: {
-      return state.push(action.payload.type);
+      return state.push(
+        fromJS(payload),
+      );
     }
 
     case ActionTypes.CLOSE: {

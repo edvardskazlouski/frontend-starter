@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { withStyles } from 'material-ui/styles';
+import injectSheet from 'react-jss';
 import styles from './styles';
 import TextField from 'material-ui/TextField';
 import Error from 'components/Forms/Error';
@@ -61,4 +61,4 @@ TextInput.defaultProps = {
   type: 'text',
 };
 
-export default withStyles(styles)(TextInput);
+export default injectSheet(styles)(TextInput);

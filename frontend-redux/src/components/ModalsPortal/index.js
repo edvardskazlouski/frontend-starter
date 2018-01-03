@@ -1,14 +1,18 @@
 import { connect } from 'react-redux';
 
 // actions creators
-import * as ModalsActionCreators from '../../actionCreators/modals';
+import {
+  closeModal,
+} from 'actionCreators/modals';
 
 import ModalsPortal from './ModalPortals';
 import mapStateToProps from './selector';
 
+const mapDispatchToProps = {
+  closeModal,
+};
+
 export default connect(
   mapStateToProps,
-  dispatch => ({
-    closeModal: values => dispatch(ModalsActionCreators.closeModal())
-  })
+  mapDispatchToProps,
 )(ModalsPortal);

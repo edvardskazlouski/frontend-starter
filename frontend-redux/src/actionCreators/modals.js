@@ -6,6 +6,6 @@ export const openModal = createAction(ActionTypes.OPEN);
 
 export const closeModal = createAction(ActionTypes.CLOSE);
 
-export const openTestModal = () => openModal({ type:  ModalTypes.TEST_MODAL });
+export const openTestModal = (data) => openModal({ type:  ModalTypes.TEST_MODAL, data });
 
 export const openForgotPasswordModal = () => openModal({ type:  ModalTypes.FORGOT_PASSWORD });

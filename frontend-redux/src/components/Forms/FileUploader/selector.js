@@ -1,7 +1,9 @@
 import { createStructuredSelector } from 'reselect';
 
-import { loading } from 'selectors/uploadFiles';
+import { isLoading, files, error } from 'selectors/fileUploader';
 
 export default createStructuredSelector({
-  loading,
+  isLoading,
+  files,
+  error,
 });

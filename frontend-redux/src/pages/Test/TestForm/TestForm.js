@@ -1,16 +1,17 @@
 import React, { PureComponent } from 'react';
-import { withStyles } from 'material-ui/styles';
+import injectSheet from 'react-jss';
 import PropTypes from 'prop-types';
 import { Field } from 'redux-form/immutable';
 import { translate } from 'react-i18next';
 
 // commponents
 import TestButton from 'components/TestButton';
+import FileUploader from 'components/Forms/FileUploader';
 
 import styles from './styles';
 
 @translate()
-@withStyles(styles)
+@injectSheet(styles)
 export default class TestForm extends PureComponent {
   static propTypes = {
     handleSubmit: PropTypes.func.isRequired,
@@ -25,13 +26,23 @@ export default class TestForm extends PureComponent {
       classes,
       t,
     } = this.props;
+    const Component = () => (
+      <div style={{ height: 100, backgroundColor: 'red', width: 100 }}>
+        uploader
+      </div>
+    );
 
     return (
       <form onSubmit={handleSubmit}>
-          <Field
-            name="testField"
-            component="input"
-          />
+        <Field
+          name="testField"
+          component="input"
+        />
+        <Field
+          component={FileUploader}
+          renderComponent={Component}
+          name="image"
+        />
         <div>
           <TestButton
             type="submit"

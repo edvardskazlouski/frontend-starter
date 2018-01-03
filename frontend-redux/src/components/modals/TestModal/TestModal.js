@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
+import injectSheet from 'react-jss';
 
 import styles from './styles';
 
@@ -11,11 +11,11 @@ import Typography from 'material-ui/Typography';
 
 class TestModal extends Component {
   render() {
-    const { classes, closeModal } = this.props;
+    const { classes, closeModal, data } = this.props;
 
     return (
       <DialogContent className={classes.content}>
-        <Typography className={classes.text} type="headline">TEST MODAL CONTENT</Typography>
+        <Typography className={classes.text} type="headline">{data.get('headline')}</Typography>
         <TestButton className={classes.close} onClick={closeModal}>Close Modal</TestButton>
       </DialogContent>
     );
@@ -27,4 +27,4 @@ TestModal.propTypes = {
   closeModal: PropTypes.func,
 };
 
-export default withStyles(styles)(TestModal);
+export default injectSheet(styles)(TestModal);

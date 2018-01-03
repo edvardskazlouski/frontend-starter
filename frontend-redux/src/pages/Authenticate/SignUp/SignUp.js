@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field } from 'redux-form/immutable';
-import { withStyles } from 'material-ui/styles';
+import injectSheet from 'react-jss';
 import styles from './styles';
 import Typography from 'material-ui/Typography';
 import { FormControl } from 'material-ui/Form';
@@ -65,5 +65,5 @@ SignUp.propTypes = {
 };
 
 export default translate()(
-  withStyles(styles)(SignUp)
+  injectSheet(styles)(SignUp)
 );

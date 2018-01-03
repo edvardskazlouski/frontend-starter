@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import { withStyles } from 'material-ui/styles';
+import injectSheet from 'react-jss';
+import { Map } from 'immutable';
 
 import styles from './styles';
+import Dialog from 'material-ui/Dialog';
 
 // modals
-import BaseModal  from 'components/modals/BaseModal';
 import TestModal from 'components/modals/TestModal';
 
 // modals
@@ -16,33 +17,29 @@ const mapTypeToModal = {
   [ModalTypes.TEST_MODAL]: TestModal,
 };
 
-class ModalsPortal extends Component {
-  render() {
-    const { classes, modals, closeModal } = this.props;
+function ModalsPortal({ classes, modals, closeModal }) {
+  const modal = modals.get(0, new Map());
+  const ModalContent =  mapTypeToModal[modal.get('type')];
 
-    return (
-      <div className={classes.modalsPortal}>
-        {
-          modals.map((type, index) => {
-            const ModalContent = mapTypeToModal[type];
-
-            return (
-              <BaseModal key={index} contentLabel={type} closeAction={closeModal}>
-                <ModalContent/>
-              </BaseModal>
-            );
-          })
-        }
-      </div>
-    );
-  }
-
+  return ModalContent ? (
+    <Dialog
+      classes={classes}
+      open={true}
+      onRequestClose={closeModal}
+    >
+      <ModalContent
+        data={modal.get('data', new Map())}
+        key={modal.get('type')}
+        closeModal={closeModal}
+      />
+    </Dialog>
+  ) : null;
 }
+
+export default injectSheet(styles)(ModalsPortal);
 
 ModalsPortal.propTypes = {
   classes: PropTypes.object,
   modals: ImmutablePropTypes.stack,
   closeModal: PropTypes.func,
 };
-
-export default withStyles(styles)(ModalsPortal);
