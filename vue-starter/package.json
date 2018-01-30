@@ -5,7 +5,10 @@
   "author": "Edvards Kazlouski",
   "license": "MIT",
   "dependencies": {
+    "lodash": "^4.17.4",
+    "nskeymirror": "^0.1.2",
     "vue": "^2.5.13",
+    "vue-template-compiler": "^2.5.0",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
@@ -16,8 +19,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
     "dotenv": "^5.0.0",
     "html-webpack-plugin": "^2.30.1",
     "vue-loader": "^13.7.0",
