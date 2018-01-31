@@ -41,9 +41,9 @@ For creating modal you should make a few steps:
 
 ## Localstorage
 Configured be object, exported from `constants/localstorage.js`.
-    - `key` - key for storing state in localstorage,
-    - `paths` - paths to stored subsets.
-    - See more in `vuex-persistedstate` docs.
+    * `key` - key for storing state in localstorage,
+    * `paths` - paths to stored subsets.
+    * See more in `vuex-persistedstate` docs.
 
 ## Main libraries:
 1. `Vue`
