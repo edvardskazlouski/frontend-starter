@@ -18,6 +18,7 @@ module.exports = {
   module: WebpackCommonConfig.module,
   resolve: WebpackCommonConfig.resolve,
   plugins: WebpackCommonConfig.plugins.concat([
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.SourceMapDevToolPlugin()
   ])
 };
