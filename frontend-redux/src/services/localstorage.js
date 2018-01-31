@@ -15,15 +15,13 @@ export default (fields) => ({
     const data = JSON.parse(serializedDate);
 
     return fields.reduce((acc, field) => {
-      acc.setIn(field.path, data[field.name]);
-      return acc;
+      return acc.setIn(field.path, data[field.name]);
     }, new Map());
   },
   merge: (initialState, persistedState) =>
     fields.reduce(
       (acc, field) => {
-        acc.setIn(field.path, persistedState.getIn(field.path));
-        return acc;
+        return acc.setIn(field.path, persistedState.getIn(field.path));
       },
       initialState
     ),

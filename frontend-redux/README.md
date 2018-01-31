@@ -20,7 +20,7 @@ This starter is create for making your live more easy. Here is applyied a few th
 8. `locales` - it's folder with lang dictionaries. All keys should be grouped by logic or view level.
 9. `pages` - the folder with all app pages. Each page should include:
     9.1. `[PageName].js` - file with page realization.
-    9.2. `index.vue` - page container.
+    9.2. `index.js` - page container.
     9.3. `selector.js` - `mapStateToProps` selector, that created using `reselect`.
     9.4. `styles.js` - view jss styles.
 10. `reducers` - the folder, that contains all app reducers. View reducers should be located in `view` folder.
