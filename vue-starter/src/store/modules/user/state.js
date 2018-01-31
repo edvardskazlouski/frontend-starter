@@ -2,4 +2,5 @@
 export default {
   name: null,
   role: null,
+  token: null,
 };

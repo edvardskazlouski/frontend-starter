@@ -10,7 +10,8 @@
     "vue": "^2.5.13",
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.0",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "vuex-persistedstate": "^2.4.2"
   },
   "scripts": {
     "dev": "node ./scripts/dev.js",

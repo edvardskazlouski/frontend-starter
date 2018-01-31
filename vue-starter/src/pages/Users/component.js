@@ -4,6 +4,7 @@ export default {
   computed: mapGetters({
     name: 'name',
     role: 'role',
+    token: 'token',
   }),
   methods: mapActions([
     'refreshUser',

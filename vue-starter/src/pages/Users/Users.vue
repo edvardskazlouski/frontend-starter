@@ -3,6 +3,7 @@
         <div>users:</div>
         <div>{{ name }}</div>
         <div>{{ role }}</div>
+        <div>{{ token }}</div>
         <button
                 @click="refreshUser()"
         >

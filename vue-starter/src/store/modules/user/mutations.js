@@ -7,6 +7,11 @@ export default {
     state.name = user.name;
     state.role = user.role;
   },
+  [MutationsTypes.SAVE_USER_INFO]: (state, user) => {
+    state.name = user.name;
+    state.role = user.role;
+    state.token = user.token;
+  },
   [MutationsTypes.CLEAR_USER]:  state => {
       state = {};
   },

@@ -3,4 +3,5 @@
 export default {
   name: state => state.name,
   role: state => state.role,
+  token: state => state.token,
 };
