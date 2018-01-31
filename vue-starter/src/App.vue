@@ -1,15 +1,18 @@
 <template>
     <div id="app">
-        <Header/>
+        <Header />
         <router-view></router-view>
+        <Modals />
     </div>
 </template>
 <script>
-  import Header from 'components/Header/index.vue'
+  import Header from 'components/Header';
+  import Modals from 'components/ModalsContainer';
 
   export default {
-    components: { Header }
-  }
+    components: { Header, Modals },
+  };
+
 </script>
 <style lang="scss">
     @import 'theme/global.scss';
