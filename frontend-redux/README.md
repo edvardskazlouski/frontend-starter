@@ -19,10 +19,10 @@ This starter is create for making your live more easy. Here is applyied a few th
 7. `helpers` - it's pure function, that help us.
 8. `locales` - it's folder with lang dictionaries. All keys should be grouped by logic or view level.
 9. `pages` - the folder with all app pages. Each page should include:
-    9.1. `[PageName].js` - file with page realization.
-    9.2. `index.js` - page container.
-    9.3. `selector.js` - `mapStateToProps` selector, that created using `reselect`.
-    9.4. `styles.js` - view jss styles.
+    1. `[PageName].js` - file with page realization.
+    2. `index.js` - page container.
+    3. `selector.js` - `mapStateToProps` selector, that created using `reselect`.
+    4. `styles.js` - view jss styles.
 10. `reducers` - the folder, that contains all app reducers. View reducers should be located in `view` folder.
 11. `router` - it is specific component with all routes-components mapping.
 12. `sagas` - folder with all app sagas. All business logic in the app should be realized on sagas level. View sagas should be located in `view` folder.
@@ -41,15 +41,15 @@ For creating modal you should make a few steps:
 5. Enjoy.
 
 ## Main libraries:
-1. `React`
-2. `React Router`
-3. `Redux`
-4. `React Redux Router`
-5. `MaterialUI@next`
-6. `Redux-sagas`
-7. `Redux-form`
-8. `Immutable`
-9. `React-Jss`
-10. `I-18next`
-11. `Reselect`
-12. `Redux-Actions`
+* `React`
+* `React Router`
+* `Redux`
+* `React Redux Router`
+* `MaterialUI@next`
+* `Redux-sagas`
+* `Redux-form`
+* `Immutable`
+* `React-Jss`
+* `I-18next`
+* `Reselect`
+* `Redux-Actions`
