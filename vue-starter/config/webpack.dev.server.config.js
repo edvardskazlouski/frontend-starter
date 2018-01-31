@@ -5,5 +5,6 @@ module.exports = {
   noInfo            : true,
   publicPath        : '/',
   quiet             : true,
-  stats             : 'errors-only'
+  stats             : 'errors-only',
+  historyApiFallback: true
 };
