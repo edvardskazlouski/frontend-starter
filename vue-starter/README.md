@@ -1,4 +1,4 @@
-# frontend-starter
+# Vue frontend starter
 This starter is create for making your live more easy. Here is applyied a few the simple and useful solutions for all basic UI problems, such popups and themes.
 
 ## Available scripts:
