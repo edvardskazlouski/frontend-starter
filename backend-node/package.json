@@ -1,0 +1,60 @@
+{
+  "name": "mba-backend",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "cross-env NODE_ENV=dev  nodemon --watch ./ --exec babel-node ./app/server.js --inspect=9222",
+    "start_test": "db-migrate reset -e test && db-migrate up -e test && set NODE_ENV=test&& babel-node ./app/server.js",
+    "test": "cross-env NODE_ENV=test mocha ./tests/app/api/**/*.tests.js ./tests/**/*.tests.js ./tests/app/unit/*.tests.js --compilers js:babel-core/register --require babel-polyfill --no-deprecation",
+    "up-test": "db-migrate up -e test",
+    "up": "db-migrate up",
+    "down": "db-migrate down",
+    "down-all": "db-migrate reset",
+    "down-all-test": "db-migrate reset -e test",
+    "remigrate": "npm run down-all & npm run up",
+    "remigrate-test": "npm run down-all-test && npm run up-test",
+    "create-migration": "db-migrate create",
+    "eslint": "./node_modules/.bin/eslint --ext .js --color ./app"
+  },
+  "dependencies": {
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.3",
+    "child-process-promise": "^2.2.1",
+    "cors": "^2.8.4",
+    "db-migrate-pg": "^0.2.5",
+    "del": "^3.0.0",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.2",
+    "lodash": "^4.17.10",
+    "moment": "^2.22.2",
+    "nodemailer": "^4.6.5",
+    "pg-promise": "^7.5.4",
+    "regenerator-runtime": "^0.11.1",
+    "run-sequence": "^2.2.1",
+    "squel": "^5.12.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "cross-env": "^5.1.6",
+    "db-migrate": "^0.10.0-beta.24",
+    "eslint": "^4.13.1",
+    "mocha": "^4.1.0",
+    "nodemon": "^1.17.4",
+    "pre-commit": "^1.2.2",
+    "randomstring": "^1.1.5"
+  },
+  "pre-commit": [
+    "eslint",
+    "test"
+  ]
+}

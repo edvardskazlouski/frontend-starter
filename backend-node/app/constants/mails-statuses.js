@@ -1,0 +1,13 @@
+export const RESET_PASSWORD_MAILS_STATUSES = {
+    PENDING: 'PENDING',
+    USED: 'USED',
+    EXPIRED: 'EXPIRED',
+    UNUSED: 'UNUSED',
+};
+
+export const ACTIVATION_MAILS_STATUSES = {
+    PENDING: 'PENDING',
+    USED: 'USED',
+    EXPIRED: 'EXPIRED',
+    UNUSED: 'UNUSED',
+};

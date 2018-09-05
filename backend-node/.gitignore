@@ -1,0 +1,16 @@
+# Logs
+*.log
+
+# Dependencies
+node_modules
+yarn.lock
+package-lock.json
+
+# Idea for Webstorm
+.idea
+
+#Env vars config
+.env
+
+#Babel
+dist

@@ -1,0 +1,356 @@
+{
+	"info": {
+		"name": "GOT_API",
+		"_postman_id": "1949cf92-d54f-6efd-01bf-ddf98ad82c6b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "get profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"profileData\": {\n\t\t\"first_name\": \"firstName1\",\n\t\t\"last_name\": \"lastName1\",\n\t\t\"email\": \"userEmail1@gmail.com\",\n\t\t\"password\": \"1234\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/profile",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete profile",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/profile",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7ba3429e-cfa8-4dd9-8513-aa8fa8dc4c2b",
+								"type": "text/javascript",
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"if (response.success) {",
+									"    const profileData = JSON.parse(request.data).profileData;",
+									"",
+									"    pm.environment.set(\"email\", profileData.email);",
+									"    pm.environment.set(\"password\", profileData.password);",
+									"}",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"profileData\": {\n\t\t\"first_name\": \"{{firstName}}\",\n\t\t\"last_name\": \"{{lastName}}\",\n\t\t\"email\": \"{{email}}\",\n\t\t\"password\": \"1234\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/profile",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "activate user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-access-token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"hash\": \"{{hash}}\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/profile/activate",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"profile",
+								"activate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "resend activation mail",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/profile/resend-activation",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"profile",
+								"resend-activation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send reset password mail",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"{{email}}\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/profile/send-reset-password-mail",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"profile",
+								"send-reset-password-mail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "07325589-4c31-486b-b75e-3422ae1db752",
+								"type": "text/javascript",
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"if (response.success) {",
+									"    const requestBody = JSON.parse(request.data);",
+									"",
+									"    pm.environment.set(\"password\", requestBody.newPassword);",
+									"}",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-access-token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"oldPassword\": \"{{password}}\",\n  \"newPassword\": \"12341\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/profile/update-password",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"profile",
+								"update-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "07325589-4c31-486b-b75e-3422ae1db752",
+								"type": "text/javascript",
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"if (response.success) {",
+									"    const requestBody = JSON.parse(request.data);",
+									"",
+									"    pm.environment.set(\"password\", requestBody.newPassword);",
+									"}",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-access-token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"hash\": \"{{hash}}\",\n\t\"newPassword\": \"12341\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/profile/reset-password",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"profile",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Session",
+			"item": [
+				{
+					"name": "Log in",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bdb1261e-6453-42cd-bad9-f42dcee9231e",
+								"type": "text/javascript",
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"if (response.success) {",
+									"    pm.environment.set(\"token\", response.token);",
+									"}",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"logInData\": {\n\t\t\"email\": \"{{email}}\",\n\t\t\"password\": \"{{password}}\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/session",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"session"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
