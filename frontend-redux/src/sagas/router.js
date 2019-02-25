@@ -25,7 +25,7 @@ function* onchange(action) {
     hash,
     pathname,
     search,
-  } = action.payload;
+  } = action.payload.location;
 
   if (task) {
     yield cancel(task);
@@ -37,10 +37,10 @@ function* onchange(action) {
 }
 
 export default function* routerSaga() {
-  // const action = yield take(LOCATION_CHANGE);
-  //
-  // yield call(initialize);
-  // yield call(onchange, action);
+  const action = yield take(LOCATION_CHANGE);
+
+  yield call(initialize);
+  yield call(onchange, action);
 
   yield takeEvery(LOCATION_CHANGE, onchange);
 }
