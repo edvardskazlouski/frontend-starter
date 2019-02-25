@@ -29,7 +29,7 @@ const TextInput = ({
       type={type}
     />
     {
-      !!meta.error &&
+      !!meta.touched && !!meta.error &&
         <Error
           className={errorClassName}
           error={meta.error}
@@ -45,6 +45,7 @@ TextInput.propTypes = {
   multiline: PropTypes.bool,
   placeholder: PropTypes.string,
   className: PropTypes.string,
+  classNameInput: PropTypes.string,
   errorClassName: PropTypes.string,
   type: PropTypes.string,
 };
