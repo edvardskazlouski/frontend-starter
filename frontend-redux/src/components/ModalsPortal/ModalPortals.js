@@ -21,11 +21,15 @@ function ModalsPortal({ classes, modals, closeModal }) {
   const modal = modals.get(0, new Map());
   const ModalContent =  mapTypeToModal[modal.get('type')];
 
-  return ModalContent ? (
+  if (!ModalContent) {
+    return null;
+  }
+
+  return (
     <Dialog
       classes={classes}
       open={true}
-      onRequestClose={closeModal}
+      onClose={closeModal}
     >
       <ModalContent
         data={modal.get('data', new Map())}
@@ -33,7 +37,7 @@ function ModalsPortal({ classes, modals, closeModal }) {
         closeModal={closeModal}
       />
     </Dialog>
-  ) : null;
+  );
 }
 
 export default injectSheet(styles)(ModalsPortal);
