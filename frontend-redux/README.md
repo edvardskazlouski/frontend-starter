@@ -42,6 +42,36 @@ For creating modal you should make a few steps:
 4. Add in `mapTypeToModal` pair with type and component into `components/ModalPortal`.
 5. Enjoy.
 
+## AWS S3 deploy
+1. Install the AWS CLI (for Mac: `brew install awscli`);
+2. In command line run `aws configure` and fill in your credentials;
+3. Create S3 bucket on AWS S3 (On the `Set permissions` tab, select `Grant public read access to
+this bucket` and hit next);
+4. Inside Inside your bucket, click the `Properties` tab. You should see an option for `Static Website
+Hosting`, click it and a modal will pop up. Select `Use this bucket to host a website` option and enter `index.html`
+for both the `Index document` and `Error document`;
+5. Click on `Permissions` tab and select `Bucket Policy`. You can copy and paste what I have below,
+swapping out example-bucket with your bucket name:
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowPublicReadAccess",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::example-bucket/*"
+      ]
+    }
+  ]
+}
+```
+Then set `S3_BUCKET_NAME` into `.env` file and run `yarn deploy`.
+
 ## Main libraries:
 * `React`
 * `React Router`
