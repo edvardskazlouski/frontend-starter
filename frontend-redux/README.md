@@ -45,8 +45,7 @@ For creating modal you should make a few steps:
 ## AWS S3 deploy
 1. Install the AWS CLI (for Mac: `brew install awscli`);
 2. In command line run `aws configure` and fill in your credentials;
-3. Create S3 bucket on AWS S3 (On the `Set permissions` tab, select `Grant public read access to
-this bucket` and hit next);
+3. Create S3 bucket on AWS S3 (On the `Set permissions` tab, remove all checkboxes and hit next);
 4. Inside Inside your bucket, click the `Properties` tab. You should see an option for `Static Website
 Hosting`, click it and a modal will pop up. Select `Use this bucket to host a website` option and enter `index.html`
 for both the `Index document` and `Error document`;
