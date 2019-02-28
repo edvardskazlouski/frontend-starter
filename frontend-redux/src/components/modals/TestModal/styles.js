@@ -5,6 +5,10 @@ export default () => ({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-between',
+    padding: '20px',
+    minWidth: 500,
+    height: 300,
+    backgroundColor: 'white',
   },
   text: {
     fontSize: 24,

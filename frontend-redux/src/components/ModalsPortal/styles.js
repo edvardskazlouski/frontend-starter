@@ -11,11 +11,5 @@ export default function () {
       justifyContent: 'center',
       backgroundColor: 'rgba(0, 0, 0, 0.5)',
     },
-    modalContent: {
-      padding: '20px',
-      minWidth: 500,
-      height: 300,
-      backgroundColor: 'white',
-    },
   };
 };

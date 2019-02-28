@@ -48,12 +48,10 @@ function ModalsPortal({ classes, modals, closeModal }) {
         className={classes.content}
         ref={wrapperEl}
       >
-        <div className={classes.modalContent}>
-          <ModalContent
-            key={modal.get('type')}
-            closeModal={handleCloseModal}
-          />
-        </div>
+        <ModalContent
+          key={modal.get('type')}
+          closeModal={handleCloseModal}
+        />
       </div>
     ),
     node
