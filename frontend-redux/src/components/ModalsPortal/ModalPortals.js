@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
@@ -19,21 +19,39 @@ const mapTypeToModal = {
 };
 
 function ModalsPortal({ classes, modals, closeModal }) {
+  function handleOutsideClick(e) {
+    wrapperEl.current === e.target && handleCloseModal();
+  }
+
+  function handleCloseModal() {
+    !disableBackdropClick && document.removeEventListener('mousedown', handleOutsideClick);
+    closeModal();
+  }
+
   const modal = modals.get(0, new Map());
   const ModalContent = mapTypeToModal[modal.get('type')];
 
   if (!ModalContent) {
     return null;
   }
-  const node = modal.get('node') || document.querySelector('#modal');
+
+  const options = modal.get('options');
+  const node = options.get('node') || document.querySelector('#modal');
+  const disableBackdropClick = options.get('disableBackdropClick') || false;
+
+  const wrapperEl = useRef(null);
+  !disableBackdropClick && document.addEventListener('mousedown', handleOutsideClick);
 
   return ReactDom.createPortal(
     (
-      <div className={classes.content}>
+      <div
+        className={classes.content}
+        ref={wrapperEl}
+      >
         <div className={classes.modalContent}>
           <ModalContent
             key={modal.get('type')}
-            closeModal={closeModal}
+            closeModal={handleCloseModal}
           />
         </div>
       </div>
