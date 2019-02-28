@@ -18,13 +18,14 @@ export default class Test extends PureComponent {
     openTestModal: PropTypes.func.isRequired,
   };
 
+  openModal = () => this.props.openTestModal();
+
   render() {
     const {
       groups,
       isOk,
       submitValue,
       submittedValue,
-      openTestModal,
 
       classes
     } = this.props;
@@ -45,7 +46,7 @@ export default class Test extends PureComponent {
         <div>
           {submittedValue}
         </div>
-        <button onClick={() => openTestModal({ headline: 'something' })}>Open modal</button>
+        <button onClick={this.openModal}>Open modal</button>
       </div>
     );
   }

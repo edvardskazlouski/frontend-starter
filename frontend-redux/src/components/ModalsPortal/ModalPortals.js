@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import injectSheet from 'react-jss';
@@ -19,24 +20,25 @@ const mapTypeToModal = {
 
 function ModalsPortal({ classes, modals, closeModal }) {
   const modal = modals.get(0, new Map());
-  const ModalContent =  mapTypeToModal[modal.get('type')];
+  const ModalContent = mapTypeToModal[modal.get('type')];
 
   if (!ModalContent) {
     return null;
   }
+  const node = modal.get('node') || document.querySelector('#modal');
 
-  return (
-    <Dialog
-      classes={classes}
-      open={true}
-      onClose={closeModal}
-    >
-      <ModalContent
-        data={modal.get('data', new Map())}
-        key={modal.get('type')}
-        closeModal={closeModal}
-      />
-    </Dialog>
+  return ReactDom.createPortal(
+    (
+      <div className={classes.content}>
+        <div className={classes.modalContent}>
+          <ModalContent
+            key={modal.get('type')}
+            closeModal={closeModal}
+          />
+        </div>
+      </div>
+    ),
+    node
   );
 }
 

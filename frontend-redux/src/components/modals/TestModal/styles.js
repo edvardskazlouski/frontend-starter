@@ -1,19 +1,15 @@
 export default () => ({
-  content: {
-    minWidth: 500,
-    height: 300,
+  root: {
+    height: '100%',
     display: 'flex',
-    alignItems: 'center',
     flexDirection: 'column',
-    padding: 60,
-    boxSizing: 'border-box',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   text: {
-    marginTop: 45,
     fontSize: 24,
   },
   close: {
-    marginTop: 45,
     width: 250,
   }
 });
