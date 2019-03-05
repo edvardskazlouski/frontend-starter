@@ -2,7 +2,8 @@ import namespace from 'helpers/namespace';
 
 export default namespace({
   MAKE_REQUEST: null,
-  MAKE_CANCELABLE_REQUEST: null,
-  REQUEST_SUCCESS: null,
-  REQUEST_FAILURE: null,
+
+  START_REQUEST: null,
+  PROGRESS_REQUEST: null,
+  FINISH_REQUEST: null,
 }, 'HTTP');

@@ -1,12 +1,13 @@
 import * as AllActionsCreators from './actionsCreators';
 import saga from './saga';
+import reducer from './reducer';
 
 const ActionsCreators = {
   makeRequest: AllActionsCreators.makeRequest,
-  makeCancelableRequest: AllActionsCreators.makeCancelableRequest,
 };
 
 export {
   ActionsCreators,
   saga,
+  reducer,
 };
