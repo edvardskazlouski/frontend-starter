@@ -1,6 +1,7 @@
-import { put, takeEvery, take, cancelled as cancelledSaga } from 'redux-saga/effects';
+import { put, takeEvery, take, cancelled as cancelledSaga, select } from 'redux-saga/effects';
 import ActionsTypes from './actionsTypes';
 import * as ActionsCreators from './actionsCreators';
+import * as UsersSelectors from 'domains/user/selectors';
 import { eventChannel, END } from 'redux-saga';
 import noop from 'lodash/noop';
 import toPairs from 'lodash/toPairs';
@@ -90,8 +91,9 @@ function tryParseJson(data) {
 
 export function* reduxExtendedRequestSaga({ payload }) {
   const { ACTIONS, url, config, meta } = payload;
-  const { method, headers, body, accessToken } = config;
+  const { method, headers, body, useAccessToken } = config;
   const fullUrl = `${API_URL}${url}`;
+  const accessToken = useAccessToken ? yield select(UsersSelectors.accessToken) : null;
 
   const { rawXhr, setHeaders, cancellationSignal, isCancelled, xhrEventChannel } = xhrWithEventChannel();
 
