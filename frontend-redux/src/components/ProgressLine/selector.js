@@ -1,8 +1,8 @@
 import { createStructuredSelector } from 'reselect';
 
-import { progress, isActive } from 'domains/http/selectors';
+import { requestsSize, averageProgress } from 'domains/http/selectors';
 
 export default createStructuredSelector({
-  progress,
-  isActive,
+  requestsSize,
+  averageProgress,
 });

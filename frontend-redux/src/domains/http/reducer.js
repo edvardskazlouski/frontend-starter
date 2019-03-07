@@ -5,24 +5,20 @@ import {
 import ActionTypes from './actionsTypes';
 
 const initialState = fromJS({
-  progress: 0,
-  isActive: false,
+  requests: {}
 });
 
 export default function (state = initialState, action) {
+  const requests = state.get('requests');
   switch (action.type) {
-
     case ActionTypes.START_REQUEST:
-      return state
-        .set('isActive', true);
+      return state.set('requests', requests.set(action.payload.id, 0));
 
     case ActionTypes.PROGRESS_REQUEST:
-      return state.set('progress', action.payload);
+      return state.set('requests', requests.set(action.payload.id, action.payload.progress));
 
     case ActionTypes.FINISH_REQUEST:
-      return state
-        .set('isActive', false)
-        .set('progress', 0);
+      return state.set('requests', requests.delete(action.payload.id));
 
     default: {
       return state;

@@ -6,17 +6,18 @@ import styles from './styles';
 
 const ProgressLine = ({
   classes,
-  progress,
-  isActive
+  requestsSize,
+  averageProgress
 }) => {
-  if (!isActive) {
+  if (!requestsSize) {
     return null;
   }
+
   return (
     <div className={classes.root}>
       <LinearProgress
         variant="determinate"
-        value={progress}
+        value={averageProgress}
       />
     </div>
   );
@@ -24,8 +25,8 @@ const ProgressLine = ({
 
 ProgressLine.propTypes = {
   classes: PropTypes.object.isRequired,
-  progress: PropTypes.number.isRequired,
-  isActive: PropTypes.bool.isRequired,
+  requestsSize: PropTypes.number.isRequired,
+  averageProgress: PropTypes.number.isRequired,
 };
 
 export default injectSheet(styles)(ProgressLine);

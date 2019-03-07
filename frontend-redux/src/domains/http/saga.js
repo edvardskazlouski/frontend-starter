@@ -1,4 +1,4 @@
-import { put, takeEvery, take, cancelled as cancelledSaga, select } from 'redux-saga/effects';
+import { put, takeEvery, take, cancelled as cancelledSaga, select, race } from 'redux-saga/effects';
 import ActionsTypes from './actionsTypes';
 import * as ActionsCreators from './actionsCreators';
 import * as UsersSelectors from 'domains/user/selectors';
@@ -6,6 +6,7 @@ import { eventChannel, END } from 'redux-saga';
 import noop from 'lodash/noop';
 import toPairs from 'lodash/toPairs';
 import { API_URL } from './constants';
+import uuid from 'uuid/v4';
 
 const XHR_DONE_STATE = 4;
 
@@ -91,11 +92,13 @@ function tryParseJson(data) {
 
 export function* reduxExtendedRequestSaga({ payload }) {
   const { ACTIONS, url, config, meta } = payload;
-  const { method, headers, body, useAccessToken } = config;
+  const { method, headers, body, useAccessToken, cancelActionType } = config;
   const fullUrl = `${API_URL}${url}`;
   const accessToken = useAccessToken ? yield select(UsersSelectors.accessToken) : null;
 
   const { rawXhr, setHeaders, cancellationSignal, isCancelled, xhrEventChannel } = xhrWithEventChannel();
+
+  const id = uuid();
 
   try {
     rawXhr.open(method, fullUrl);
@@ -106,28 +109,37 @@ export function* reduxExtendedRequestSaga({ payload }) {
     });
     yield put(ACTIONS.start({ ...meta, cancellationSignal }));
     rawXhr.send(body);
-    yield put(ActionsCreators.startRequest());
+    yield put(ActionsCreators.startRequest({ id }));
     while (true) {
-      const event = yield take(xhrEventChannel);
-      yield put(ActionsCreators.progressRequest(event.progress));
-      if (event.done) {
-        if (event.ok) {
-          const response = tryParseJson(event.response);
-          return yield put(ACTIONS.success(response, meta));
+      const { event, cancel } = yield race({
+        event: take(xhrEventChannel),
+        cancel: take(cancelActionType)
+      });
+
+      if (cancel) {
+        cancellationSignal();
+      } else {
+        const { progress } = event;
+        yield put(ActionsCreators.progressRequest({ progress, id }));
+        if (event.done) {
+          if (event.ok) {
+            const response = tryParseJson(event.response);
+            return yield put(ACTIONS.success(response, meta));
+          }
+          throw new Error(`[fancyXHR] failed to call: ${fullUrl}`);
         }
-        throw new Error(`[fancyXHR] failed to call: ${fullUrl}`);
       }
     }
   } catch (e) {
     return yield put(ACTIONS.error(e, meta));
   } finally {
-    yield put(ActionsCreators.finishRequest());
     if (yield cancelledSaga()) {
       xhrEventChannel.close();
       yield put(ACTIONS.cancel(meta));
     } else if (isCancelled()) {
       yield put(ACTIONS.cancel(meta));
     }
+    yield put(ActionsCreators.finishRequest(id));
   }
 }
 
