@@ -18,7 +18,7 @@ export default function (state = initialState, action) {
       return state.set('requests', requests.set(action.payload.id, action.payload.progress));
 
     case ActionTypes.FINISH_REQUEST:
-      return state.set('requests', requests.delete(action.payload.id));
+      return state.set('requests', requests.delete(action.payload));
 
     default: {
       return state;
