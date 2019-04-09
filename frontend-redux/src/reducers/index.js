@@ -11,6 +11,7 @@ import fileUploaders from './fileUploaders';
 // domains
 import { reducer as testGroups } from 'domains/testGroups';
 import { reducer as user } from 'domains/user';
+import { reducer as http } from 'domains/http';
 
 // views
 import test from './views/test';
@@ -29,6 +30,7 @@ export default (history) => combineReducers({
   // domains
   testGroups,
   user,
+  http,
 
   // views
   test,

@@ -1,3 +1,5 @@
+import { all } from 'redux-saga/effects';
+
 export default function* homeSaga() {
-  // home view business logic should be here
+  yield all([]);
 }
