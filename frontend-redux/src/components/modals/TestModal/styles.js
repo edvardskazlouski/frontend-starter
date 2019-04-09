@@ -1,19 +1,19 @@
 export default () => ({
-  content: {
+  root: {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: '20px',
     minWidth: 500,
     height: 300,
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'column',
-    padding: 60,
-    boxSizing: 'border-box',
+    backgroundColor: 'white',
   },
   text: {
-    marginTop: 45,
     fontSize: 24,
   },
   close: {
-    marginTop: 45,
     width: 250,
   }
 });

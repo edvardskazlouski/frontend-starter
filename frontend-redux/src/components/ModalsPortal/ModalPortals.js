@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import injectSheet from 'react-jss';
@@ -18,25 +19,42 @@ const mapTypeToModal = {
 };
 
 function ModalsPortal({ classes, modals, closeModal }) {
+  function handleOutsideClick(e) {
+    wrapperEl.current === e.target && handleCloseModal();
+  }
+
+  function handleCloseModal() {
+    !disableBackdropClick && document.removeEventListener('mousedown', handleOutsideClick);
+    closeModal();
+  }
+
   const modal = modals.get(0, new Map());
-  const ModalContent =  mapTypeToModal[modal.get('type')];
+  const ModalContent = mapTypeToModal[modal.get('type')];
 
   if (!ModalContent) {
     return null;
   }
 
-  return (
-    <Dialog
-      classes={classes}
-      open={true}
-      onClose={closeModal}
-    >
-      <ModalContent
-        data={modal.get('data', new Map())}
-        key={modal.get('type')}
-        closeModal={closeModal}
-      />
-    </Dialog>
+  const options = modal.get('options');
+  const node = options.get('node') || document.querySelector('#modal');
+  const disableBackdropClick = options.get('disableBackdropClick') || false;
+
+  const wrapperEl = useRef(null);
+  !disableBackdropClick && document.addEventListener('mousedown', handleOutsideClick);
+
+  return ReactDom.createPortal(
+    (
+      <div
+        className={classes.content}
+        ref={wrapperEl}
+      >
+        <ModalContent
+          key={modal.get('type')}
+          closeModal={handleCloseModal}
+        />
+      </div>
+    ),
+    node
   );
 }
 

@@ -88,7 +88,8 @@
     "build-storybook": "build-storybook -s publsic",
     "storybook": "start-storybook -p 9009 -s public",
     "lint": "./node_modules/.bin/eslint ./src/.",
-    "pre-commit-test": "CI=true node scripts/test.js --env=jsdom"
+    "pre-commit-test": "CI=true node scripts/test.js --env=jsdom",
+    "aws-deploy": "yarn build && ./scripts/aws_deploy.sh"
   },
   "husky": {
     "hooks": {
