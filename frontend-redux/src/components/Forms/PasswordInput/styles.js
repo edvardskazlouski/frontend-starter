@@ -6,6 +6,6 @@ export default ({ colors }) => ({
     width: '100%',
   },
   iconButton: {
-    height: '25px',
+    padding: '0',
   }
 });

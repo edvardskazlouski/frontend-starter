@@ -1,9 +1,6 @@
-import { createSelector } from 'reselect';
+import { createStructuredSelector } from 'reselect';
 import { route } from '../../selectors/routing';
 
-export default createSelector(
+export default createStructuredSelector({
   route,
-  route => ({
-    route
-  })
-);
+});

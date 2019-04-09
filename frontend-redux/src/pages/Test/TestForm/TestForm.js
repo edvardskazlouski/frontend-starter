@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import injectSheet from 'react-jss';
 import PropTypes from 'prop-types';
 import { Field } from 'redux-form/immutable';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 // commponents
 import TestButton from 'components/TestButton';
@@ -10,7 +10,7 @@ import FileUploader from 'components/Forms/FileUploader';
 
 import styles from './styles';
 
-@translate()
+@withTranslation()
 @injectSheet(styles)
 export default class TestForm extends PureComponent {
   static propTypes = {

@@ -1,6 +1,5 @@
 import { matchPath } from 'react-router';
-import { delay } from 'redux-saga';
-import { put, call, select, all, takeEvery } from 'redux-saga/effects';
+import { put, call, select, all, takeEvery, delay } from 'redux-saga/effects';
 
 import {
   startLoading,

@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { Field } from 'redux-form/immutable';
 import injectSheet from 'react-jss';
 import styles from './styles';
-import Typography from 'material-ui/Typography';
-import { FormControl } from 'material-ui/Form';
-import { translate } from 'react-i18next';
+import Typography from '@material-ui/core/Typography';
+import FormControl from '@material-ui/core/FormControl';
+import { withTranslation } from 'react-i18next';
 
 import PasswordInput from 'components/Forms/PasswordInput';
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 
 const ResetPassword = ({ handleSubmit, classes, openForgotPasswordModal, t }) => (
   <form
@@ -42,6 +42,6 @@ ResetPassword.propTypes = {
   t: PropTypes.func.isRequired,
 };
 
-export default translate()(
+export default withTranslation()(
   injectSheet(styles)(ResetPassword)
 );

@@ -5,11 +5,10 @@ import installDevTools from 'immutable-devtools';
 
 // router
 import history from './history';
-import { routerMiddleware } from 'react-router-redux';
+import { routerMiddleware } from 'connected-react-router/immutable';
 
 // middlewares
 import createSagaMiddleware from 'redux-saga';
-import { apiMiddleware } from 'redux-api-middleware';
 import persistState from 'redux-localstorage';
 
 //helpers
@@ -25,9 +24,8 @@ const initialState = Map();
 const enhancers = [persistState(['token'], getLocalStorageConfig(LOCAL_STORAGE_CONFIG))];
 const sagaMiddleware = createSagaMiddleware();
 const middleware = [
-  apiMiddleware,
-  sagaMiddleware,
   routerMiddleware(history),
+  sagaMiddleware,
 ];
 
 if (process.env.NODE_ENV === 'development') {
@@ -46,7 +44,7 @@ const composedEnhancers = compose(
 );
 
 const store = createStore(
-  rootReducer,
+  rootReducer(history),
   initialState,
   composedEnhancers,
 );

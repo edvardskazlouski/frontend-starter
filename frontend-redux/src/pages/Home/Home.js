@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import ReactHelmet from 'react-helmet';
 import injectSheet from 'react-jss';
 
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import styles from './styles';
 
-@translate()
+@withTranslation()
 @injectSheet(styles)
 export default class Home extends PureComponent {
   static propTypes = {

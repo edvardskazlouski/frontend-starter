@@ -1,4 +1,4 @@
-import { LOCATION_CHANGE } from 'react-router-redux';
+import { LOCATION_CHANGE } from 'connected-react-router';
 import { takeEvery, cancel, call, fork, take } from 'redux-saga/effects';
 
 // constants
@@ -25,7 +25,7 @@ function* onchange(action) {
     hash,
     pathname,
     search,
-  } = action.payload;
+  } = action.payload.location;
 
   if (task) {
     yield cancel(task);

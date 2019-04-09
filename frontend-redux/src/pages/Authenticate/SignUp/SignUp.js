@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { Field } from 'redux-form/immutable';
 import injectSheet from 'react-jss';
 import styles from './styles';
-import Typography from 'material-ui/Typography';
-import { FormControl } from 'material-ui/Form';
-import { translate } from 'react-i18next';
+import Typography from '@material-ui/core/Typography';
+import FormControl from '@material-ui/core/FormControl';
+import { withTranslation } from 'react-i18next';
 
 import TextInput from 'components/Forms/TextInput';
 import PasswordInput from 'components/Forms/PasswordInput';
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 
 const SignUp = ({ handleSubmit, classes, t }) => (
   <form
@@ -23,7 +23,6 @@ const SignUp = ({ handleSubmit, classes, t }) => (
       <Field
         name="email"
         component={TextInput}
-        inputClassName={classes.input}
         props={{
           type: 'email'
         }}
@@ -36,7 +35,6 @@ const SignUp = ({ handleSubmit, classes, t }) => (
       <Field
         name="code"
         component={TextInput}
-        inputClassName={classes.input}
       />
     </FormControl>
     <FormControl className={classes.formControl}>
@@ -46,7 +44,6 @@ const SignUp = ({ handleSubmit, classes, t }) => (
       <Field
         name="password"
         component={PasswordInput}
-        inputClassName={classes.input}
       />
     </FormControl>
     <Button
@@ -64,6 +61,6 @@ SignUp.propTypes = {
   t: PropTypes.func.isRequired,
 };
 
-export default translate()(
+export default withTranslation()(
   injectSheet(styles)(SignUp)
 );

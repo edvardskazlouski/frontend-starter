@@ -5,10 +5,11 @@ import injectSheet from 'react-jss';
 import styles from './styles';
 import Error from 'components/Forms/Error';
 
-import IconButton from 'material-ui/IconButton';
-import Input, { InputAdornment } from 'material-ui/Input';
-import Visibility from 'material-ui-icons/Visibility';
-import VisibilityOff from 'material-ui-icons/VisibilityOff';
+import IconButton from '@material-ui/core/IconButton';
+import Input from '@material-ui/core/Input';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 class PasswordInput extends Component {
   static propTypes = {

@@ -5,7 +5,7 @@ import classnames from 'classnames';
 
 import styles from './styles';
 
-import { CircularProgress } from 'material-ui/Progress';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 function Progress({ classes, classNames }) {
 

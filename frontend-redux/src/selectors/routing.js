@@ -1,3 +1,3 @@
 export const route = state => {
-  return state.getIn(['routing', 'location', 'pathname']);
+  return state.getIn(['router', 'location', 'pathname']) || '';
 };

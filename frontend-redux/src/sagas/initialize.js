@@ -1,5 +1,4 @@
-import { delay } from 'redux-saga';
-import { put } from 'redux-saga/effects';
+import { put, delay } from 'redux-saga/effects';
 
 import {
   startLoading,

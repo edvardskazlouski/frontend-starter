@@ -1,4 +1,4 @@
 export default [{
   name: 'location',
-  path: [ 'routing', 'location', 'pathname' ]
+  path: [ 'router', 'location', 'pathname' ]
 }];

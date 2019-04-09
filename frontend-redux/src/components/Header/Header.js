@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import injectSheet from 'react-jss';
 import Flag from 'react-world-flags';
 
 import styles from './styles';
 
-@translate()
+@withTranslation()
 @injectSheet(styles)
 export default class Header extends PureComponent {
   static propTypes = {

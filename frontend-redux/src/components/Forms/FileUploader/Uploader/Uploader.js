@@ -22,7 +22,7 @@ function Uploader({
   name,
   onFilesLoading,
 
-  ...params,
+  ...params
 }) {
   const uploaderId = `fileUploader:${name}`;
 

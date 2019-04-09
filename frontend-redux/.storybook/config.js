@@ -4,7 +4,7 @@ import { configure, addDecorator } from '@storybook/react';
 // decorators
 import { I18nextProvider } from 'react-i18next';
 import { ThemeProvider } from 'react-jss';
-import { MuiThemeProvider } from 'material-ui/styles';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
 import theme from '../src/theme';
 import i18n from '../src/config/i18next'; // initialized i18next instance

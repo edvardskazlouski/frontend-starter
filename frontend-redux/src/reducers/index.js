@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux-immutable';
 import { reducer as formReducer } from 'redux-form';
+import { connectRouter } from 'connected-react-router/immutable';
 
 // generic
 import modals from './modals';
@@ -10,15 +11,18 @@ import fileUploaders from './fileUploaders';
 // domains
 import { reducer as testGroups } from 'domains/testGroups';
 import { reducer as user } from 'domains/user';
+import { reducer as http } from 'domains/http';
 
 // views
 import test from './views/test';
 
-export default combineReducers({
+export default (history) => combineReducers({
   form: formReducer,
 
   // generic
-  routing,
+  router: connectRouter(history),
+
+  // routing,
   modals,
   loading,
   fileUploaders,
@@ -26,6 +30,7 @@ export default combineReducers({
   // domains
   testGroups,
   user,
+  http,
 
   // views
   test,

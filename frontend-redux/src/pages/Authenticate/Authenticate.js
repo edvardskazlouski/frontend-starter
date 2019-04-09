@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import SwipeableViews from 'react-swipeable-views';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
-import AppBar from 'material-ui/AppBar';
-import Tabs, { Tab } from 'material-ui/Tabs';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 
 import styles from './styles';
 
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 
-@translate()
+@withTranslation()
 @injectSheet(styles)
 export default class Authenticate extends Component {
   static propTypes = {
@@ -21,8 +22,8 @@ export default class Authenticate extends Component {
     t: PropTypes.func.isRequired,
   };
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       selectedTab: 0,
@@ -44,11 +45,10 @@ export default class Authenticate extends Component {
           <Tabs
             value={this.state.selectedTab}
             onChange={(event, selectedTab) => this.setSelectedTab(selectedTab)}
-            indicatorClassName={classes.selectedTab}
             classes={{
               root: classes.tabs,
             }}
-            fullWidth
+            variant='fullWidth'
           >
             <Tab
               className={classes.tab}
