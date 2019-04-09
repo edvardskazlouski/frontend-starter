@@ -3,7 +3,7 @@ import namespace from 'helpers/namespace';
 export default namespace({
   SET_TEST: null,
   SUBMIT_VALUE: null,
-
+  INIT_TEST_REQUEST: null,
   ADD_TEST_REQUEST: null,
   ADD_TEST_SUCCESS: null,
   ADD_TEST_FAILURE: null,

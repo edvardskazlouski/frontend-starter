@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import ReactHelmet from 'react-helmet';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
+
 import TestForm from './TestForm';
 import styles from './styles';
 
@@ -16,7 +17,16 @@ export default class Test extends PureComponent {
     submitValue: PropTypes.func.isRequired,
     submittedValue: PropTypes.string,
     openTestModal: PropTypes.func.isRequired,
+    initiateRequest: PropTypes.func,
+    cancelRequest: PropTypes.func
   };
+  onRequestClick = () => {
+    this.props.initiateRequest('Post message');
+  }
+
+  onCancelClick = () => {
+    this.props.cancelRequest();
+  }
 
   render() {
     const {
@@ -25,7 +35,6 @@ export default class Test extends PureComponent {
       submitValue,
       submittedValue,
       openTestModal,
-
       classes
     } = this.props;
 
@@ -46,6 +55,8 @@ export default class Test extends PureComponent {
           {submittedValue}
         </div>
         <button onClick={() => openTestModal({ headline: 'something' })}>Open modal</button>
+        <button onClick={this.onRequestClick}>Request</button>
+        <button onClick={this.onCancelClick}>Cancel request</button>
       </div>
     );
   }
