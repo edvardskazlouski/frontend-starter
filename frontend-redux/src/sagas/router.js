@@ -1,5 +1,6 @@
 import { LOCATION_CHANGE } from 'connected-react-router';
 import { takeEvery, cancel, call, fork, take } from 'redux-saga/effects';
+import { matchPath } from 'react-router';
 
 // constants
 import * as Routes from 'constants/routing';
@@ -21,7 +22,7 @@ const viewSagas = {
 let task = null;
 
 function* onchange(action) {
-  const {
+  let {
     hash,
     pathname,
     search,
@@ -31,6 +32,12 @@ function* onchange(action) {
     yield cancel(task);
   }
 
+  if (pathname.includes('/reset/')) {
+    pathname = matchPath(pathname, {
+      path:'/reset/:activationLink',
+      exact: true
+    }).path;
+  }
   if (pathname in viewSagas) {
     task = yield fork(viewSagas[pathname], search, hash);
   }
@@ -38,9 +45,7 @@ function* onchange(action) {
 
 export default function* routerSaga() {
   const action = yield take(LOCATION_CHANGE);
-
   yield call(initialize);
-  yield call(onchange, action);
-
   yield takeEvery(LOCATION_CHANGE, onchange);
+  yield call(onchange, action);
 }

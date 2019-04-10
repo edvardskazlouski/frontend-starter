@@ -22,11 +22,19 @@ export default class Test extends PureComponent {
   };
   onRequestClick = () => {
     this.props.initiateRequest('Post message');
-  }
+  };
 
   onCancelClick = () => {
     this.props.cancelRequest();
-  }
+  };
+
+  onResetClick = () => {
+    this.props.history.push('/reset/:activationLink');
+  };
+
+  onTestClick = () => {
+      this.props.history.push('/reset/22045');
+  };
 
   openModal = () => this.props.openTestModal();
 
@@ -58,6 +66,8 @@ export default class Test extends PureComponent {
         <button onClick={this.onRequestClick}>Request</button>
         <button onClick={this.onCancelClick}>Cancel request</button>
         <button onClick={this.openModal}>Open modal</button>
+        <button onClick={this.onResetClick}>Reset</button>
+        <button onClick={this.onTestClick}>Test</button>
       </div>
     );
   }

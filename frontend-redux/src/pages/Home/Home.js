@@ -15,6 +15,10 @@ export default class Home extends PureComponent {
     t: PropTypes.func.isRequired,
   };
 
+  onClick = () => {
+    this.props.history.push('/test');
+  };
+
   render() {
     const {
       route,
@@ -29,6 +33,7 @@ export default class Home extends PureComponent {
         />
         <div className={classes.title}>
           {t('home:homeTitle')}
+          <button onClick={this.onClick}>TestPage</button>
         </div>
         {route}
       </div>
