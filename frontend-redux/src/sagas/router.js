@@ -32,9 +32,10 @@ function* onchange(action) {
     yield cancel(task);
   }
 
-  if (pathname.includes('/reset/')) {
+  if (pathname.includes('/reset')) {
+    const pathName = pathname.substr(pathname.lastIndexOf('/') + 1);
     pathname = matchPath(pathname, {
-      path:'/reset/:activationLink',
+      path:`/reset/:${pathName}`,
       exact: true
     }).path;
   }
