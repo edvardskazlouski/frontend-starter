@@ -33,7 +33,7 @@ export default class Test extends PureComponent {
   };
 
   onTestClick = () => {
-      this.props.history.push('/reset/22045');
+      this.props.history.push('/reset/activationLink');
   };
 
   openModal = () => this.props.openTestModal();
@@ -67,7 +67,7 @@ export default class Test extends PureComponent {
         <button onClick={this.onCancelClick}>Cancel request</button>
         <button onClick={this.openModal}>Open modal</button>
         <button onClick={this.onResetClick}>Reset</button>
-        <button onClick={this.onTestClick}>Test</button>
+        <button onClick={this.onTestClick}>Reset matchpath</button>
       </div>
     );
   }
