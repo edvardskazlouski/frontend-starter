@@ -18,7 +18,8 @@ export default class Test extends PureComponent {
     submittedValue: PropTypes.string,
     openTestModal: PropTypes.func.isRequired,
     initiateRequest: PropTypes.func,
-    cancelRequest: PropTypes.func
+    cancelRequest: PropTypes.func,
+    addFirebaseData: PropTypes.func
   };
 
   state = {
@@ -44,7 +45,7 @@ export default class Test extends PureComponent {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.addFirebaseData(this.state);
   };
 
   render() {

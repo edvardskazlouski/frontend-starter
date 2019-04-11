@@ -15,6 +15,10 @@ import {
 import {
   cancelRequest
 } from 'actionCreators/views/test';
+
+import {
+  addFirebaseData
+} from 'actionCreators/views/test';
 // view
 import Test from './Test';
 
@@ -25,7 +29,9 @@ const mapDispatchToProps = {
   submitValue: values => submitValue(values.testField),
   openTestModal,
   initiateRequest,
-  cancelRequest
+  cancelRequest,
+  addFirebaseData
+
 };
 
 export default connect(
