@@ -4,7 +4,9 @@ import rsf from './rsf';
 
 
 export function* addFirebaseDataSaga({ payload }) {
-  yield call(rsf.firestore.addDocument, 'user', payload);
+  if (payload.name && payload.age) {
+    yield call(rsf.firestore.addDocument, 'user', payload);
+  }
 }
 
 export default function* firebaseSaga() {
