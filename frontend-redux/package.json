@@ -70,6 +70,7 @@
     "redux-immutable": "^4.0.0",
     "redux-localstorage": "^0.4.1",
     "redux-saga": "^1.0.1",
+    "redux-saga-firebase": "^0.15.0",
     "reselect": "^4.0.0",
     "resolve": "1.10.0",
     "sass-loader": "7.1.0",

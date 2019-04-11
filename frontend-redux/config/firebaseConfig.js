@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/auth';
+import '@firebase/firestore';
+import '@firebase/auth';
+import ReduxSagaFirebase from 'redux-saga-firebase';
 
 // Initialize Firebase
 // Insert your credentials
@@ -13,7 +14,6 @@ const config = {
   messagingSenderId: '801023450889'
 };
 
-firebase.initializeApp(config);
-firebase.firestore().settings({ timestampsInSnapshots: true });
+const rsf = new ReduxSagaFirebase(firebase.initializeApp(config));
 
-export default firebase;
+export default rsf;
