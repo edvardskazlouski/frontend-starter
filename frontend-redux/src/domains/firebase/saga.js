@@ -1,10 +1,13 @@
-import { put, takeEvery, take, cancelled as cancelledSaga, select, race } from 'redux-saga/effects';
+import { takeEvery, call } from 'redux-saga/effects';
 import ActionsTypes from './actionsTypes';
+import rsf from './rsf';
+
 
 export function* addFirebaseDataSaga({ payload }) {
-  console.log(payload);
+  yield call(rsf.firestore.addDocument, 'user', payload);
 }
 
 export default function* firebaseSaga() {
   yield takeEvery(ActionsTypes.SEND_DATA, addFirebaseDataSaga);
 }
+
