@@ -37,8 +37,9 @@ function* onchange(action) {
     }
   });
 
+  if (taskRoute){
   task = yield fork(viewSagas[taskRoute], search, hash);
-  console.log(task);
+  }
 }
 
 export default function* routerSaga() {
