@@ -2,6 +2,7 @@ import { combineReducers } from 'redux-immutable';
 import { reducer as formReducer } from 'redux-form';
 import { connectRouter } from 'connected-react-router/immutable';
 import { firestoreReducer } from 'redux-firestore';
+import { firebaseReducer } from 'react-redux-firebase';
 
 // generic
 import modals from './modals';
@@ -19,6 +20,7 @@ import test from './views/test';
 
 export default (history) => combineReducers({
   form: formReducer,
+  firebase: firebaseReducer,
   firestore: firestoreReducer,
   // generic
   router: connectRouter(history),

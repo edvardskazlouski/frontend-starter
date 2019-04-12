@@ -1,4 +1,6 @@
 import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
 
 // actions creators
 import {
@@ -34,7 +36,12 @@ const mapDispatchToProps = {
 
 };
 
-export default connect(
-  testSelector,
-  mapDispatchToProps,
+export default compose (
+  connect(
+    testSelector,
+    mapDispatchToProps,
+  ),
+  firestoreConnect([
+    {collection: 'user'}
+  ])
 )(Test);

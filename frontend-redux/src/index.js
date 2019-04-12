@@ -14,12 +14,23 @@ import { createGenerateClassName, createMuiTheme, jssPreset } from '@material-ui
 import { Provider } from 'react-redux';
 import store from './store';
 import history from './store/history';
+import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
+import { createFirestoreInstance } from 'redux-firestore';
+import firebase from 'config/fbConfig';
+import config from 'config/fbConfig';
 
 import { ConnectedRouter } from 'connected-react-router/immutable';
 
 const jss = create({
   ...jssPreset()
 });
+
+const rrfProps = {
+  firebase,
+  config: config,
+  dispatch: store.dispatch,
+  createFirestoreInstance
+};
 
 const generateClassName = createGenerateClassName();
 
@@ -29,7 +40,9 @@ ReactDOM.render(
       <JssProvider jss={jss} generateClassName={generateClassName}>
         <Provider store={store}>
           <ConnectedRouter history={history}>
-            <App />
+            <ReactReduxFirebaseProvider {...rrfProps}>
+              <App />
+            </ReactReduxFirebaseProvider>
           </ConnectedRouter>
         </Provider>
       </JssProvider>
