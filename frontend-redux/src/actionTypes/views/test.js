@@ -9,4 +9,5 @@ export default namespace({
   ADD_TEST_FAILURE: null,
   ADD_TEST_CANCELED: null,
   CANCEL_ADD_TEST_REQUEST: null,
+  ADD_FIREBASE_DATA_TEST: null
 }, 'TEST_VIEW');

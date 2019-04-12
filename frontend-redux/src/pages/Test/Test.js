@@ -18,17 +18,37 @@ export default class Test extends PureComponent {
     submittedValue: PropTypes.string,
     openTestModal: PropTypes.func.isRequired,
     initiateRequest: PropTypes.func,
-    cancelRequest: PropTypes.func
+    cancelRequest: PropTypes.func,
+    addFirebaseData: PropTypes.func
   };
+
+  state = {
+    name: '',
+    age: ''
+  };
+
   onRequestClick = () => {
     this.props.initiateRequest('Post message');
-  }
+  };
 
   onCancelClick = () => {
     this.props.cancelRequest();
-  }
+  };
 
   openModal = () => this.props.openTestModal();
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.id]: e.target.value
+    });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    if (this.state.name && this.state.age){
+      this.props.addFirebaseData(this.state);
+    }
+  };
 
   render() {
     const {
@@ -58,6 +78,17 @@ export default class Test extends PureComponent {
         <button onClick={this.onRequestClick}>Request</button>
         <button onClick={this.onCancelClick}>Cancel request</button>
         <button onClick={this.openModal}>Open modal</button>
+        <form onSubmit={this.handleSubmit}>
+          <div>
+            <input type="text" id="name" onChange={this.handleChange} />
+            <label htmlFor="name">Name</label>
+          </div>
+          <div>
+            <input type="text" id="age" onChange={this.handleChange} />
+            <label htmlFor="age">Age</label>
+          </div>
+          <button className="btn pink lighten-1">Create</button>
+        </form>
       </div>
     );
   }

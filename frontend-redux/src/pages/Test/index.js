@@ -1,4 +1,6 @@
 import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
 
 // actions creators
 import {
@@ -15,6 +17,10 @@ import {
 import {
   cancelRequest
 } from 'actionCreators/views/test';
+
+import {
+  addFirebaseData
+} from 'actionCreators/views/test';
 // view
 import Test from './Test';
 
@@ -25,10 +31,17 @@ const mapDispatchToProps = {
   submitValue: values => submitValue(values.testField),
   openTestModal,
   initiateRequest,
-  cancelRequest
+  cancelRequest,
+  addFirebaseData
+
 };
 
-export default connect(
-  testSelector,
-  mapDispatchToProps,
+export default compose (
+  connect(
+    testSelector,
+    mapDispatchToProps,
+  ),
+  firestoreConnect([
+    {collection: 'user'}
+  ])
 )(Test);

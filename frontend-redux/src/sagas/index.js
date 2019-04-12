@@ -4,6 +4,7 @@ import routerSaga from './router';
 import fileUploader from './fileUploader';
 import { saga as testGroupsSaga } from 'domains/testGroups';
 import { saga as httpSaga } from 'domains/http';
+import { saga as firebaseSaga} from 'domains/firebase';
 
 export default function* rootSaga() {
   yield all([
@@ -12,5 +13,6 @@ export default function* rootSaga() {
     // here can be only domain sagas
     testGroupsSaga(),
     httpSaga(),
+    firebaseSaga()
   ]);
 }

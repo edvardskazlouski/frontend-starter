@@ -24,3 +24,5 @@ export const initiateRequest = createAction(ActionTypes.INIT_TEST_REQUEST);
 export const setTest = createAction(ActionTypes.SET_TEST);
 
 export const submitValue = createAction(ActionTypes.SUBMIT_VALUE);
+
+export const addFirebaseData = createAction(ActionTypes.ADD_FIREBASE_DATA_TEST);
