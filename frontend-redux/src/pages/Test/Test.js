@@ -20,8 +20,6 @@ export default class Test extends PureComponent {
     initiateRequest: PropTypes.func,
     cancelRequest: PropTypes.func
   };
-<<<<<<< Updated upstream
-=======
 
   state = {
     name: '',
@@ -29,7 +27,6 @@ export default class Test extends PureComponent {
     loading: false
   };
 
->>>>>>> Stashed changes
   onRequestClick = () => {
     this.props.initiateRequest('Post message');
   }
@@ -40,8 +37,6 @@ export default class Test extends PureComponent {
 
   openModal = () => this.props.openTestModal();
 
-<<<<<<< Updated upstream
-=======
   handleChange = (e) => {
     this.setState({
       [e.target.id]: e.target.value
@@ -59,7 +54,6 @@ export default class Test extends PureComponent {
     });
   };
 
->>>>>>> Stashed changes
   render() {
     const {
       groups,
@@ -88,8 +82,6 @@ export default class Test extends PureComponent {
         <button onClick={this.onRequestClick}>Request</button>
         <button onClick={this.onCancelClick}>Cancel request</button>
         <button onClick={this.openModal}>Open modal</button>
-<<<<<<< Updated upstream
-=======
         <LoadingHOC classes={classes} blocking={this.state.loading} children={
           <form onSubmit={this.handleSubmit}>
             <div>
@@ -104,7 +96,6 @@ export default class Test extends PureComponent {
           </form>
           } />
         <button onClick={this.onLoadingClick}>Imitate loading</button>
->>>>>>> Stashed changes
       </div>
     );
   }
