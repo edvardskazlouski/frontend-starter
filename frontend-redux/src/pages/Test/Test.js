@@ -3,7 +3,7 @@ import injectSheet from 'react-jss';
 import PropTypes from 'prop-types';
 import ReactHelmet from 'react-helmet';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-
+import LoadingHOC from 'components/Loading/Loading';
 
 import TestForm from './TestForm';
 import styles from './styles';
@@ -20,6 +20,16 @@ export default class Test extends PureComponent {
     initiateRequest: PropTypes.func,
     cancelRequest: PropTypes.func
   };
+<<<<<<< Updated upstream
+=======
+
+  state = {
+    name: '',
+    age: '',
+    loading: false
+  };
+
+>>>>>>> Stashed changes
   onRequestClick = () => {
     this.props.initiateRequest('Post message');
   }
@@ -30,6 +40,26 @@ export default class Test extends PureComponent {
 
   openModal = () => this.props.openTestModal();
 
+<<<<<<< Updated upstream
+=======
+  handleChange = (e) => {
+    this.setState({
+      [e.target.id]: e.target.value
+    });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.addFirebaseData(this.state);
+  };
+
+  onLoadingClick = () => {
+    this.setState({
+      loading: !this.state.loading
+    });
+  };
+
+>>>>>>> Stashed changes
   render() {
     const {
       groups,
@@ -58,6 +88,23 @@ export default class Test extends PureComponent {
         <button onClick={this.onRequestClick}>Request</button>
         <button onClick={this.onCancelClick}>Cancel request</button>
         <button onClick={this.openModal}>Open modal</button>
+<<<<<<< Updated upstream
+=======
+        <LoadingHOC classes={classes} blocking={this.state.loading} children={
+          <form onSubmit={this.handleSubmit}>
+            <div>
+              <input type="text" id="name" onChange={this.handleChange} />
+              <label htmlFor="name">Name</label>
+            </div>
+            <div>
+              <input type="text" id="age" onChange={this.handleChange} />
+              <label htmlFor="age">Age</label>
+            </div>
+            <button className="btn pink lighten-1">Create</button>
+          </form>
+          } />
+        <button onClick={this.onLoadingClick}>Imitate loading</button>
+>>>>>>> Stashed changes
       </div>
     );
   }
