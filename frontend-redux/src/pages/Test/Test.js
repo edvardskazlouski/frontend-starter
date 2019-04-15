@@ -45,7 +45,7 @@ export default class Test extends PureComponent {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addFirebaseData(this.state);
+    console.log(this.state);
   };
 
   onLoadingClick = () => {
