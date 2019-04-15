@@ -3,7 +3,7 @@ import injectSheet from 'react-jss';
 import PropTypes from 'prop-types';
 import ReactHelmet from 'react-helmet';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-
+import LoadingHOC from 'components/Loading/Loading';
 
 import TestForm from './TestForm';
 import styles from './styles';
@@ -24,7 +24,8 @@ export default class Test extends PureComponent {
 
   state = {
     name: '',
-    age: ''
+    age: '',
+    loading: false
   };
 
   onRequestClick = () => {
@@ -48,6 +49,12 @@ export default class Test extends PureComponent {
     if (this.state.name && this.state.age){
       this.props.addFirebaseData(this.state);
     }
+  };
+
+  onLoadingClick = () => {
+    this.setState({
+      loading: !this.state.loading
+    });
   };
 
   render() {
@@ -78,17 +85,20 @@ export default class Test extends PureComponent {
         <button onClick={this.onRequestClick}>Request</button>
         <button onClick={this.onCancelClick}>Cancel request</button>
         <button onClick={this.openModal}>Open modal</button>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <input type="text" id="name" onChange={this.handleChange} />
-            <label htmlFor="name">Name</label>
-          </div>
-          <div>
-            <input type="text" id="age" onChange={this.handleChange} />
-            <label htmlFor="age">Age</label>
-          </div>
-          <button className="btn pink lighten-1">Create</button>
-        </form>
+        <LoadingHOC classes={classes} blocking={this.state.loading}>
+          <form onSubmit={this.handleSubmit}>
+            <div>
+              <input type="text" id="name" onChange={this.handleChange} />
+              <label htmlFor="name">Name</label>
+            </div>
+            <div>
+              <input type="text" id="age" onChange={this.handleChange} />
+              <label htmlFor="age">Age</label>
+            </div>
+            <button className="btn pink lighten-1">Create</button>
+          </form>
+        </LoadingHOC>
+        <button onClick={this.onLoadingClick}>Imitate loading</button>
       </div>
     );
   }
