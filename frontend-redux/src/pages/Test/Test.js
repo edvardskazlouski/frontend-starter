@@ -82,7 +82,7 @@ export default class Test extends PureComponent {
         <button onClick={this.onRequestClick}>Request</button>
         <button onClick={this.onCancelClick}>Cancel request</button>
         <button onClick={this.openModal}>Open modal</button>
-        <LoadingHOC classes={classes} blocking={this.state.loading} children={
+        <LoadingHOC classes={classes} blocking={this.state.loading}>
           <form onSubmit={this.handleSubmit}>
             <div>
               <input type="text" id="name" onChange={this.handleChange} />
@@ -94,7 +94,7 @@ export default class Test extends PureComponent {
             </div>
             <button className="btn pink lighten-1">Create</button>
           </form>
-          } />
+        </LoadingHOC>
         <button onClick={this.onLoadingClick}>Imitate loading</button>
       </div>
     );
