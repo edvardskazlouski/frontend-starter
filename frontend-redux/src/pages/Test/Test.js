@@ -47,7 +47,10 @@ export default class Test extends PureComponent {
   handleSubmit = (e) => {
     e.preventDefault();
     if (this.state.name && this.state.age){
-      this.props.addFirebaseData(this.state);
+      this.props.addFirebaseData({
+        name: this.state.name,
+        age: this.state.age
+      });
     }
   };
 
