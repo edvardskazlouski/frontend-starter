@@ -1,6 +1,7 @@
 import { LOCATION_CHANGE } from 'connected-react-router';
 import { takeEvery, cancel, call, fork, take } from 'redux-saga/effects';
 import pathToRegexp from 'path-to-regexp';
+import find from 'lodash/find';
 
 // constants
 import * as Routes from 'constants/routing';
@@ -20,7 +21,6 @@ const viewSagas = {
 };
 
 let task = null;
-let taskRoute = null;
 function* onchange(action) {
   const {
     hash,
@@ -31,14 +31,13 @@ function* onchange(action) {
   if (task) {
     yield cancel(task);
   }
-  Object.keys(viewSagas).forEach(path => {
-    if (pathname.match(pathToRegexp(path))) {
-      taskRoute = path;
-    }
-  });
+  const taskRoute = find(Object.keys(viewSagas), (path) => (
+    pathname.match(pathToRegexp(path))
+  ));
 
   if (taskRoute){
-  task = yield fork(viewSagas[taskRoute], search, hash);
+    task = yield fork(viewSagas[taskRoute], search, hash);
+    console.log(task);
   }
 }
 
