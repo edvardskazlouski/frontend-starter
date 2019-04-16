@@ -21,7 +21,6 @@ it('Button receive type and class', () => {
       <Button className='test' type='button'>Button</Button>
     </TestComponent>
   );
-  console.log(button);
   expect(button.children().props().type).toEqual('button');
   expect(button.children().props().className).toEqual('test');
 });
