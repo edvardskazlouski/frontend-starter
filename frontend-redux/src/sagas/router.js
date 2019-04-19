@@ -37,13 +37,12 @@ function* onchange(action) {
 
   if (taskRoute){
     task = yield fork(viewSagas[taskRoute], search, hash);
-    console.log(task);
   }
 }
 
 export default function* routerSaga() {
-  yield takeEvery(LOCATION_CHANGE, onchange);
-  yield call(initialize);
   const action = yield take(LOCATION_CHANGE);
+  yield call(initialize);
   yield call(onchange, action);
+  yield takeEvery(LOCATION_CHANGE, onchange);
 }
