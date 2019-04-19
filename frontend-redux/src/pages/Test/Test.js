@@ -29,11 +29,19 @@ export default class Test extends PureComponent {
 
   onRequestClick = () => {
     this.props.initiateRequest('Post message');
-  }
+  };
 
   onCancelClick = () => {
     this.props.cancelRequest();
-  }
+  };
+
+  onResetClick = () => {
+    this.props.history.push('/reset/:activationLink');
+  };
+
+  onTestClick = () => {
+      this.props.history.push('/reset/activationLink');
+  };
 
   openModal = () => this.props.openTestModal();
 
