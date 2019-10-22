@@ -84,3 +84,4 @@ Then set `S3_BUCKET_NAME` into `.env` file and run `yarn deploy`.
 * `I-18next`
 * `Reselect`
 * `Redux-Actions`
+
