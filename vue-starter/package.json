@@ -5,7 +5,7 @@
   "author": "Edvards Kazlouski",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.19",
     "nskeymirror": "^0.1.2",
     "vue": "^2.5.13",
     "vue-router": "^3.0.1",
